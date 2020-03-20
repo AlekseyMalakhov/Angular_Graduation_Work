@@ -1,0 +1,12 @@
+#map {
+	position: absolute;
+	height: 100vh;
+    width: auto;
+	left: 0px;
+	right: 0px;
+	background-image: url("/assets/pics/map.jpg");
+    background-repeat: no-repeat;
+	background-color: black;
+	background-position: center;
+    margin: 0 auto;
+}

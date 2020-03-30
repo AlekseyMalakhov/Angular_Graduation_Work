@@ -1,12 +1,15 @@
 #map {
 	position: absolute;
-	height: 100vh;
-    width: auto;
+	top: 64px;
 	left: 0px;
 	right: 0px;
-	background-image: url("/assets/pics/map.jpg");
-    background-repeat: no-repeat;
-	background-color: black;
-	background-position: center;
-    margin: 0 auto;
+	margin: 0 auto;
+	overflow: scroll;
+}
+
+#map img{
+	position: relative;
+	height: 873px;
+	width: 1815px;
+	overflow: hidden;
 }

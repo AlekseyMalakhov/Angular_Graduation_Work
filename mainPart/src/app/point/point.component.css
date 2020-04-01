@@ -1,0 +1,6 @@
+.point {
+    position: absolute;
+    top: 500px;
+    left: 800px;
+    z-index: 2;
+}

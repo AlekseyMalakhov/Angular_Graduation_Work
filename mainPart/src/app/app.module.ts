@@ -10,6 +10,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { PlaceComponent } from './place/place.component';
+import { PointComponent } from './point/point.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PlaceComponent } from './place/place.component';
     MapComponent,
     HeaderComponent,
     SidenavComponent,
-    PlaceComponent
+    PlaceComponent,
+    PointComponent
   ],
   imports: [
     BrowserModule,

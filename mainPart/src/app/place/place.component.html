@@ -1,11 +1,14 @@
 <mat-card>
     <mat-card-header>
-        <mat-card-title>{{name}}</mat-card-title>
-        <mat-card-subtitle>Arnold Shwarzeneger</mat-card-subtitle>
+        <mat-card-title>{{place.name}}</mat-card-title>
+        <mat-card-subtitle>{{place.author}}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="/assets/pics/places/1.jpg" alt="Proin">
+    <img mat-card-image src="/assets/pics/places/{{place.img}}" alt="{{place.name}} picture">
     <mat-card-content>
-        <p>Curabitur et lectus lorem. Etiam congue scelerisque urna. In pretium, leo id porta convallis, sapien dui bibendum justo, 
-            eleifend accumsan libero leo nec tortor. Proin ac bibendum ligula.</p>
+        <p>{{place.description}}</p>
     </mat-card-content>
 </mat-card>
+
+<script>
+    console.log("fuck");
+</script>

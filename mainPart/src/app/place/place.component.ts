@@ -6,11 +6,12 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./place.component.css']
 })
 export class PlaceComponent implements OnInit {
-  @Input() name: string;
+  @Input() place;
 
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.place.name);
   }
 
 }

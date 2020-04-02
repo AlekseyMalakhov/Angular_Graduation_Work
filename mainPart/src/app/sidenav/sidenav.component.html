@@ -2,7 +2,6 @@
     <div>
         <button mat-raised-button color="primary">Add Place</button>
     </div>
-    <!--<app-place *ngFor = "let place of places"></app-place>-->
     <div *ngFor = "let place of places">
         <app-place [place] = "place"></app-place>
     </div>

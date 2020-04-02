@@ -4,6 +4,7 @@
 	left: 0px;
 	right: 0px;
 	margin: 0 auto;
+	z-index: 1;
 }
 
 #map img{

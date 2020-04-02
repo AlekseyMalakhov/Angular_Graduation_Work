@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-point',
@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./point.component.css']
 })
 export class PointComponent implements OnInit {
+  @Input() place;
 
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit(): void {
+  }
+
+  getCoords() {
+    return {
+      left: this.place.coords[0] + "px", 
+      top: this.place.coords[1] + "px"
+    };
   }
 
 }

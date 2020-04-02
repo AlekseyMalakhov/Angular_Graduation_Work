@@ -21,4 +21,10 @@ export class PointComponent implements OnInit {
     };
   }
 
+  showCard() {
+    console.log("Fuck you");
+  }
+
+
+
 }

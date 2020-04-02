@@ -11,6 +11,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { PlaceComponent } from './place/place.component';
 import { PointComponent } from './point/point.component';
+import { PointCardComponent } from './point-card/point-card.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PointComponent } from './point/point.component';
     HeaderComponent,
     SidenavComponent,
     PlaceComponent,
-    PointComponent
+    PointComponent,
+    PointCardComponent
   ],
   imports: [
     BrowserModule,

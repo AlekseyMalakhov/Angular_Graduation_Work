@@ -8,6 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PointComponent implements OnInit {
   @Input() place;
 
+  mystyle = {display: "none"};
+
   constructor() { 
   }
 
@@ -22,7 +24,7 @@ export class PointComponent implements OnInit {
   }
 
   showCard() {
-    console.log("Fuck you");
+    this.mystyle = {display: "block"};
   }
 
 

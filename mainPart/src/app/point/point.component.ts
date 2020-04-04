@@ -29,8 +29,12 @@ function findPosition(viewportCoords, coords) {     //находим полож�
   console.log(dist_l + ", " + dist_r);
   console.log(dist_t + ", " + dist_b);
 
-  if ((dist_b < 460) && (dist_r > 200)) {
-    pos = "top";
+  if ((dist_b < 460) && (dist_r > 200) && (dist_t > 460)) {
+    pos = "topRight";
+  }
+
+  if ((dist_b < 460) && (dist_r > 200) && (dist_t < 460)) {
+    pos = "right";
   }
 
   if ((dist_b > 460) && (dist_r < 200)) {
@@ -50,7 +54,7 @@ function cardStyle(pos) {
     case "bottom":
       style = {display: "block"};
       break;
-    case "top":
+    case "topRight":
       style = {
         display: "block",
         top: "-350px"
@@ -67,6 +71,13 @@ function cardStyle(pos) {
         display: "block",
         top: "-350px",
         left: "-160px"
+      };
+      break;
+    case "right":
+      style = {
+        display: "block",
+        top: "-150px",
+        right: "-50px"
       };
       break;
     default:
@@ -92,7 +103,6 @@ export class PointComponent implements OnInit {
   }
 
   getCoords() {
-    console.log("we get coords");
     return {
       left: this.place.coords[0] + "px",
       top: this.place.coords[1] + "px",
@@ -103,13 +113,11 @@ export class PointComponent implements OnInit {
     //находим где отображать карточку
     var viewportCoords = getviewportCoords();
     var pos = findPosition(viewportCoords, this.place.coords);
-    console.log(pos);
     this.mystyle = cardStyle(pos);
-    console.log(this.mystyle);
   }
 
   hideCard() {
-    //this.mystyle = {display: "none"};
+    this.mystyle = {display: "none"};
   }
 
 

@@ -21,7 +21,7 @@
         "author": "Conor McGregor",
         "img": "3.jpg",
         "description": "aliquam, lectus quam pharetra elit, nec facilisis tellus magna et ante. Curabitur ornare ac sem nec suscipit. Pellentesque est purus, ",
-        "coords": [900, 600]    
+        "coords": [1650, 600]    
     },
     {
         "id": 4,
@@ -37,6 +37,6 @@
         "author": "Fedor Emelianenko",
         "img": "5.jpg",
         "description": "tincidunt rutrum lobortis. Proin maximus diam eget quam aliquet, et ullamcorper arcu pharetra. Ut malesuada justo pellentesque nulla ",
-        "coords": [1200, 300]    
+        "coords": [1650, 300]    
     }
 ]

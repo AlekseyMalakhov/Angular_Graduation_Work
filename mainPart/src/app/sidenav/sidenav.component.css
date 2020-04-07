@@ -2,7 +2,6 @@
     position: fixed;
     top: 64px;
     left: 0px;
-    display: block;
     padding-right: 15px;
     padding-left: 15px;
     background-color: white;
@@ -21,4 +20,12 @@ div {
 
 button {
     margin: 15px auto;
+}
+
+#sidenav.show {
+    display: block;
+}
+
+#sidenav.hide {
+    display: none;
 }

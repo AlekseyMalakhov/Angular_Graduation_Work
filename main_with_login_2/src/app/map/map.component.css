@@ -1,0 +1,16 @@
+#map {
+	position: absolute;
+	top: 64px;
+	left: 0px;
+	right: 0px;
+	margin: 0 auto;
+	z-index: 1;
+}
+
+#map img{
+	position: relative;
+	height: 873px;
+	width: 1815px;
+	overflow: hidden;
+	display: block;	
+}

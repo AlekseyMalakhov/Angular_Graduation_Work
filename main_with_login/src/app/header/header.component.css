@@ -20,3 +20,12 @@ span {
 button {
     margin-left: 10px;
 }
+
+.auth_buttons {
+    margin-right: 15px;
+}
+
+.user_name {
+    font-size: 14px;
+    font-weight: 500;
+}

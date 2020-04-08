@@ -2,20 +2,6 @@
 <app-header></app-header>
 <app-sidenav [places] = "places"></app-sidenav>
 
-<div class = "okta">
-  <div>
-    <div>
-      <a routerLink="/">
-        Okta-Angular Sample Project
-      </a>
-      <a *ngIf="!isAuthenticated" routerLink="/login">Login</a>
-      <a id="messages-button" *ngIf="isAuthenticated" routerLink="/messages"><i aria-hidden="true" class="mail outline icon"></i>Messages</a>
-      <a id="profile-button" *ngIf="isAuthenticated" routerLink="/profile">Profile</a>
-      <a id="logout-button" *ngIf="isAuthenticated" (click)="logout()">Logout</a>
-    </div>
-  </div>
-  
-  <div>
+<div class = "okta"> 
     <router-outlet></router-outlet>
-  </div> 
 </div>

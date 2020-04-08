@@ -33,8 +33,6 @@ const oktaConfig = Object.assign({
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { MessagesComponent } from './messages/messages.component';
-import { ProfileComponent } from './profile/profile.component';
 
 const appRoutes: Routes = [
   {
@@ -49,24 +47,12 @@ const appRoutes: Routes = [
     path: 'login',
     component: LoginComponent,
   },
-  {
-    path: 'profile',
-    component: ProfileComponent,
-    canActivate: [ OktaAuthGuard ],
-  },
-  {
-    path: 'messages',
-    component: MessagesComponent,
-    canActivate: [ OktaAuthGuard ],
-  },
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ProfileComponent,
-    MessagesComponent,
     LoginComponent,
     MapComponent,
     HeaderComponent,

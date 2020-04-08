@@ -1,57 +1,66 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, NavigationStart} from '@angular/router';
+/*!
+ * Copyright (c) 2018, Okta, Inc. and/or its affiliates. All rights reserved.
+ * The Okta software accompanied by this notice is provided pursuant to the Apache License, Version 2.0 (the "License.")
+ *
+ * You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *
+ * See the License for the specific language governing permissions and limitations under the License.
+ */
 
-import { OktaAuthService } from '@okta/okta-angular';
+import { Component, OnInit } from '@angular/core';
 import * as OktaSignIn from '@okta/okta-signin-widget';
+import sampleConfig from '../app.config';
+
 
 @Component({
-  selector: 'app-secure',
-  template: `
-    <!-- Container to inject the Sign-In Widget -->
-    <div id="okta-signin-container"></div>
-  `
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
-  signIn;
-  widget = new OktaSignIn({
-    baseUrl: 'https://${yourOktaDomain}',
-    authParams: {
-      pkce: true
-    }
-  });
-
-  constructor(oktaAuth: OktaAuthService, router: Router) {
-    this.signIn = oktaAuth;
-
-    // Show the widget when prompted, otherwise remove it from the DOM.
-    router.events.forEach(event => {
-      if (event instanceof NavigationStart) {
-        switch(event.url) {
-          case '/login':
-            break;
-          case '/protected':
-            break;
-          default:
-            this.widget.remove();
-            break;
-        }
-      }
+export class LoginComponent implements OnInit {
+  signIn: any;
+  constructor() {
+    this.signIn = new OktaSignIn({
+      /**
+       * Note: when using the Sign-In Widget for an ODIC flow, it still
+       * needs to be configured with the base URL for your Okta Org. Here
+       * we derive it from the given issuer for convenience.
+       */
+      baseUrl: sampleConfig.oidc.issuer.split('/oauth2')[0],
+      clientId: sampleConfig.oidc.clientId,
+      redirectUri: sampleConfig.oidc.redirectUri,
+      logo: '/assets/angular.svg',
+      i18n: {
+        en: {
+          'primaryauth.title': 'Sign in to Angular & Company',
+        },
+      },
+      authParams: {
+        pkce: true,
+        responseMode: 'query',
+        issuer: sampleConfig.oidc.issuer,
+        display: 'page',
+        scopes: sampleConfig.oidc.scopes,
+      },
     });
   }
 
   ngOnInit() {
-    this.widget.renderEl({
-      el: '#okta-signin-container'},
-      (res) => {
-        if (res.status === 'SUCCESS') {
-          this.signIn.loginRedirect('/', { sessionToken: res.session.token });
-          // Hide the widget
-          this.widget.hide();
-        }
+    this.signIn.renderEl(
+      { el: '#sign-in-widget' },
+      () => {
+        /**
+         * In this flow, the success handler will not be called because we redirect
+         * to the Okta org for the authentication workflow.
+         */
       },
       (err) => {
         throw err;
-      }
+      },
     );
   }
+
 }

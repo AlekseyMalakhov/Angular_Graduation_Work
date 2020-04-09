@@ -7,10 +7,12 @@
 	z-index: 1;
 }
 
-#map img{
+#background {
 	position: relative;
-	height: 873px;
-	width: 1815px;
+	height: 1200px;
+	width: 2400px;
 	overflow: hidden;
 	display: block;	
+	background-image: url("/assets/pics/map.jpg"), url("/assets/pics/rep_map.jpg");
+	background-repeat: no-repeat, repeat;
 }

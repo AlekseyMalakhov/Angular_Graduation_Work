@@ -68,7 +68,7 @@ const places = [
 })
 export class AppComponent implements OnInit {
   places = places;
-  title = "mainPart";
+  title = "Your Favorite Places";
   isAuthenticated: boolean;
   constructor(public oktaAuth: OktaAuthService, private router: Router) {
     this.oktaAuth.$authenticationState.subscribe(isAuthenticated => this.isAuthenticated = isAuthenticated);

@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
       logo: '/assets/angular.svg',
       i18n: {
         en: {
-          'primaryauth.title': 'Sign in to Angular & Company',
+          'primaryauth.title': 'Log in to Your Favorite Places',
         },
       },
       authParams: {
@@ -49,6 +49,7 @@ export class LoginComponent implements OnInit {
         throw err;
       },
     );
+    console.log(this.signIn);
   }
 
 }

@@ -1,4 +1,6 @@
 mat-card {
+    position: relative;
+    z-index: 3;
     margin: 15px 0px;
     width: 150px;
 }

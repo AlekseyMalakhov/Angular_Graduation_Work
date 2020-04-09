@@ -1,6 +1,7 @@
-.okta {
-    position: absolute;
-    left: 500px;
-    z-index: 4;
-    display: block;
+#container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
 }

@@ -12,7 +12,7 @@
 	height: 1200px;
 	width: 2400px;
 	overflow: hidden;
-	display: block;	
+	display: none;	
 	background-image: url("/assets/pics/map.jpg"), url("/assets/pics/rep_map.jpg");
 	background-repeat: no-repeat, repeat;
 }

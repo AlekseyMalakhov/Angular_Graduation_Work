@@ -1,7 +1,9 @@
 <app-map [places] = "places"></app-map>
 <app-header></app-header>
-<app-sidenav [places] = "places"></app-sidenav>
-
-<div class = "okta"> 
-    <router-outlet></router-outlet>
+<div id = "container">
+    <app-sidenav [places] = "places"></app-sidenav>
+    <router-outlet></router-outlet>    
 </div>
+
+
+

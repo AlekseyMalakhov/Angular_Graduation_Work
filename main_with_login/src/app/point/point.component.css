@@ -4,9 +4,3 @@
     height: 40px;
     padding: 20px 20px;
 }
-
-
-app-point-card {
-    position: relative;
-    z-index: 3;
-}

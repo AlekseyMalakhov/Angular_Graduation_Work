@@ -10,6 +10,7 @@ import sampleConfig from '../app.config';
 })
 export class LoginComponent implements OnInit {
   signIn: any;
+  
   constructor() {
     this.signIn = new OktaSignIn({
       /**
@@ -36,6 +37,13 @@ export class LoginComponent implements OnInit {
         display: 'page',
         scopes: sampleConfig.oidc.scopes,
       },
+      customButtons: [{
+        title: 'Close',
+        className: 'btn-customAuth',
+        click: function() {
+          window.location.href = '';
+        }
+      }]
     });
   }
 
@@ -52,6 +60,7 @@ export class LoginComponent implements OnInit {
         throw err;
       },
     );
+    this.signIn.show();
     console.log(this.signIn);
   }
 

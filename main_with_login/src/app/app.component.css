@@ -3,7 +3,6 @@
     top: 64px;
     display: flex;
     height: 1200px;
-    /*align-items: center;*/
     justify-content: center;
 }
 
@@ -13,4 +12,9 @@ app-sidenav.show {
 
 app-sidenav.hide {
     display: none;
+}
+
+.placeholder{
+    position: relative;
+    flex: 8;
 }

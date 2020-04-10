@@ -1,18 +1,13 @@
 #sidenav {
-    /*position: fixed;*/
-    top: 64px;
-    /*left: 0px;*/
     padding-right: 15px;
     padding-left: 15px;
     background-color: white;
     color: black;
     font-size: 20px;
-    height: 100%;
-    flex-grow: 1;
-    flex-basis: 15%;
-    min-width: 200px;
+    flex-direction: column;
+    flex: 1;
     overflow: auto;
-    z-index: 3;
+    min-width: 230px;
 }
 
 div {
@@ -21,12 +16,4 @@ div {
 
 button {
     margin: 15px auto;
-}
-
-#sidenav.show {
-    display: block;
-}
-
-#sidenav.hide {
-    display: none;
 }

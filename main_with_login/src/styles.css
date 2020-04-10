@@ -2,3 +2,19 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+app-sidenav {
+    position: relative;
+    height: 100%;
+    z-index: 2;
+    flex: 1;
+}
+
+app-login {
+    position: relative;
+    z-index: 2;
+    flex: 8;
+    display: block;
+}
+
+

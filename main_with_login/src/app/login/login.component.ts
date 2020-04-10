@@ -25,6 +25,9 @@ export class LoginComponent implements OnInit {
         en: {
           'primaryauth.title': 'Log in to Your Favorite Places',
         },
+        ru: {
+          'primaryauth.title': 'Log in to Your Favorite Places',
+        },
       },
       authParams: {
         pkce: true,

@@ -1,7 +1,16 @@
 #container {
+    position: relative;
+    top: 64px;
     display: flex;
-    height: 100%;
-    width: 100%;
-    align-items: center;
+    height: 1200px;
+    /*align-items: center;*/
     justify-content: center;
+}
+
+app-sidenav.show {
+    display: flex;
+}
+
+app-sidenav.hide {
+    display: none;
 }

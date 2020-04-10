@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PlacesService } from "../places.service";
+//import { PlacesService } from "../places.service";
 
 @Component({
   selector: 'app-sidenav',
@@ -8,14 +8,15 @@ import { PlacesService } from "../places.service";
 })
 export class SidenavComponent implements OnInit {
   
-  sidenav_pos:string;
+  //sidenav_pos:string;
 
   @Input() places;
 
-  constructor(private data: PlacesService) { }
+  //constructor(private data: PlacesService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.data.currentPosition.subscribe(sidenav_pos => this.sidenav_pos = sidenav_pos);
+    //this.data.currentPosition.subscribe(sidenav_pos => this.sidenav_pos = sidenav_pos);
   }
 
 }

@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { OktaAuthService } from '@okta/okta-angular';
+import { PlacesService } from "./places.service";
 //import places from "./places.json";
 
 const places = [
@@ -70,12 +71,17 @@ export class AppComponent implements OnInit {
   places = places;
   title = "Your Favorite Places";
   isAuthenticated: boolean;
-  constructor(public oktaAuth: OktaAuthService, private router: Router) {
+  sidenav_pos:string;
+
+  constructor(public oktaAuth: OktaAuthService, private router: Router, private data: PlacesService) {
     this.oktaAuth.$authenticationState.subscribe(isAuthenticated => this.isAuthenticated = isAuthenticated);
   }
+
   async ngOnInit() {
     this.isAuthenticated = await this.oktaAuth.isAuthenticated();
+    this.data.currentPosition.subscribe(sidenav_pos => this.sidenav_pos = sidenav_pos);
   }
+
   logout() {
     this.oktaAuth.logout('/');
   }

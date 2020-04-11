@@ -114,6 +114,7 @@ export class PointComponent implements OnInit {
     var viewportCoords = getviewportCoords();
     var pos = findPosition(viewportCoords, this.place.coords);
     this.mystyle = cardStyle(pos);
+    console.log(this.mystyle);
   }
 
   hideCard() {

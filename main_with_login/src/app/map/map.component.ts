@@ -7,6 +7,7 @@ import { Component, OnInit, Input} from '@angular/core';
 })
 
 export class MapComponent implements OnInit {
+  //Object = Object;
   @Input() places;  
 
   constructor() { }

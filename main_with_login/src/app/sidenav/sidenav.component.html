@@ -2,8 +2,15 @@
     <div>
         <button mat-raised-button color="primary">Add Place</button>
     </div>
+
+    <!--<div *ngFor = "let author_id of Object.keys(places)">
+        <div *ngFor = "let place of places[author_id]">
+            <app-place [place] = "place"></app-place>
+        </div>        
+    </div>-->
+
     <div *ngFor = "let place of places">
         <app-place [place] = "place"></app-place>
-    </div>
+    </div>   
     
 </div>

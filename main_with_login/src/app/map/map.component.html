@@ -3,6 +3,11 @@
     <div *ngFor = "let place of places">
         <app-point [place] = "place"></app-point>
     </div>
-    
+
+    <!--<div *ngFor = "let author_id of Object.keys(places)">
+        <div *ngFor = "let place of places[author_id]">
+            <app-point [place] = "place"></app-point>
+        </div>        
+    </div>-->
 </div>
 

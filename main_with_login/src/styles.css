@@ -11,9 +11,9 @@ app-sidenav {
 }
 
 app-login {
-    position: relative;
+    position: sticky;
+    top: 80px;
     z-index: 2;
-    flex: 8;
     display: block;
 }
 

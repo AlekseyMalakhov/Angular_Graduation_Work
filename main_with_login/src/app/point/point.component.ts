@@ -93,6 +93,7 @@ function cardStyle(pos) {
 })
 export class PointComponent implements OnInit {
   @Input() place;
+  @Input() user;
 
   mystyle = {display: "none"};
 
@@ -114,13 +115,19 @@ export class PointComponent implements OnInit {
     var viewportCoords = getviewportCoords();
     var pos = findPosition(viewportCoords, this.place.coords);
     this.mystyle = cardStyle(pos);
-    console.log(this.mystyle);
   }
 
   hideCard() {
     this.mystyle = {display: "none"};
   }
 
+  findOwner() {
+    var color = "#3f51b5";
+    if (this.place.author === this.user) {
+      color = "red";
+    }        
+    return color;
+  }
 
 
 }

@@ -10,10 +10,10 @@
     </div>
     
     <div class="auth_buttons">        
-        <button *ngIf="!isAuthenticated" mat-stroked-button id="login" role="button" routerLink="/login">Login</button>
-        <button *ngIf="!isAuthenticated" mat-stroked-button id="signIn">Sign In</button>
-        <span *ngIf="isAuthenticated && userName" class="user_name">{{userName}}</span>
-        <button *ngIf="isAuthenticated && userName" mat-stroked-button id="logOut" (click)="logout()">Log Out</button>
+        <button *ngIf="!user" mat-stroked-button id="login" role="button" routerLink="/login">Login</button>
+        <button *ngIf="!user" mat-stroked-button id="signIn">Sign In</button>
+        <span *ngIf="user" class="user_name">{{user}}</span>
+        <button *ngIf="user" mat-stroked-button id="logOut" (click)="logout()">Log Out</button>
     </div>
     
 </div>

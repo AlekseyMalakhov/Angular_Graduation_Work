@@ -1,5 +1,5 @@
-<app-map [places] = "arr_places"></app-map>
-<app-header></app-header>
+<app-map [places] = "arr_places" [user] = "user"></app-map>
+<app-header [user] = "user" (logout)="logout()"></app-header>
 <div id = "container">
     <app-sidenav [class] = "sidenav_pos" [places] = "arr_places"></app-sidenav>
     <div class="placeholder">

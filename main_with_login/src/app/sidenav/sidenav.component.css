@@ -7,7 +7,6 @@
     flex-direction: column;
     flex: 1;
     overflow: auto;
-    min-width: 230px;
 }
 
 div {

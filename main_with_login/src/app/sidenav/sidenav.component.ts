@@ -10,6 +10,9 @@ export class SidenavComponent implements OnInit {
   @Input() places;
   @Input() user;
 
+  editPlace = false;
+  mystyle = {};
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -19,9 +22,16 @@ export class SidenavComponent implements OnInit {
   addPlace() {
     if (this.user) {
       console.log("add place for " + this.user);
+      this.editPlace = true;
+      this.mystyle = {minWidth: "300px"};
     } else {
       this.router.navigate(["/login"]);
     }    
+  }
+
+  cancelEditPlace() {
+    this.editPlace = false;
+    this.mystyle = {minWidth: ""};
   }
 
 }

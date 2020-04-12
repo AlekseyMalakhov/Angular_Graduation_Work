@@ -4,15 +4,20 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 app-sidenav {
-    position: relative;
+    position: fixed;
     height: 100%;
     z-index: 2;
-    flex: 1;
+    left: 0px;
+    min-width: 230px;
+    width: 15%;
+    top: 64px;    
 }
 
 app-login {
-    position: sticky;
+    position: fixed;
     top: 80px;
+    left: 0px;
+    right: 0px;
     z-index: 2;
     display: block;
 }

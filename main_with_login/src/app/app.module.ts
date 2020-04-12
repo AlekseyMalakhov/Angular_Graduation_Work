@@ -17,6 +17,7 @@ import { HeaderComponent } from './header/header.component';
 import { SidenavComponent } from './sidenav/sidenav.component'; 
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
 import { PlaceComponent } from './place/place.component';
 import { PointComponent } from './point/point.component';
 import { PointCardComponent } from './point-card/point-card.component';
@@ -33,6 +34,7 @@ const oktaConfig = Object.assign({
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { EditPlaceComponent } from './edit-place/edit-place.component';
 
 const appRoutes: Routes = [
   {
@@ -59,7 +61,8 @@ const appRoutes: Routes = [
     SidenavComponent,
     PlaceComponent,
     PointComponent,
-    PointCardComponent
+    PointCardComponent,
+    EditPlaceComponent
   ],
   imports: [
     BrowserModule,
@@ -70,6 +73,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
+    MatInputModule,
   ],
   providers: [
     { provide: OKTA_CONFIG, useValue: oktaConfig },

@@ -1,5 +1,6 @@
 <app-map [places] = "arr_places" [user] = "user"></app-map>
 <app-header [user] = "user" (logout)="logout()"></app-header>
+<!--
 <div id = "container">
     <app-sidenav [class] = "sidenav_pos" [places] = "arr_places" [user] = "user"></app-sidenav>
     <div class="placeholder">
@@ -7,6 +8,12 @@
     </div>
        
 </div>
+-->
+<app-sidenav [class] = "sidenav_pos" [places] = "arr_places" [user] = "user"></app-sidenav>
+<router-outlet></router-outlet>
+
+
+
 
 
 

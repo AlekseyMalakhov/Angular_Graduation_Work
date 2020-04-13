@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+app-sidenav {
+    position: fixed;
+    height: 100%;
+    z-index: 2;
+    left: 0px;
+    min-width: 230px;
+    width: 15%;
+    top: 64px;    
+}
+
+app-login {
+    position: fixed;
+    top: 80px;
+    left: 0px;
+    right: 0px;
+    z-index: 2;
+    display: block;
+}
+
+

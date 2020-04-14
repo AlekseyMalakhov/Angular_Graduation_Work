@@ -9,7 +9,7 @@ import {
   OktaCallbackComponent,
 } from '@okta/okta-angular';
 
-import { AppRoutingModule } from './app-routing.module';
+//import { AppRoutingModule } from './app-routing.module';
 import { MapComponent } from './map/map.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
@@ -31,14 +31,14 @@ const oktaConfig = Object.assign({
 }, sampleConfig.oidc);
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { EditPlaceComponent } from './edit-place/edit-place.component';
 
 const appRoutes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    redirectTo: '/',
+    pathMatch: 'full'
   },
   {
     path: 'implicit/callback',
@@ -53,7 +53,6 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     LoginComponent,
     MapComponent,
     HeaderComponent,
@@ -68,7 +67,6 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     OktaAuthModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,

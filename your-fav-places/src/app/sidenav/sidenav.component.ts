@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { PlacesService } from "../places.service";
 
 @Component({
   selector: 'app-sidenav',
@@ -12,11 +13,13 @@ export class SidenavComponent implements OnInit {
 
   editPlace = false;
   mystyle = {};
+  selected_place;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private data: PlacesService) {
+    this.data.currentSelected.subscribe(selected_place => this.selected_place = selected_place);
+  }
 
   ngOnInit(): void {
-    console.log(this.router);
   }
 
   addPlace() {

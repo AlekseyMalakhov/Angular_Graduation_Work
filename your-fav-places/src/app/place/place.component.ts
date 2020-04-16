@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { PlacesService } from "../places.service";
 
 @Component({
   selector: 'app-place',
@@ -7,8 +8,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PlaceComponent implements OnInit {
   @Input() place;
+  selected_place;
 
-  constructor() { }
+  constructor(private data: PlacesService) {
+    this.data.currentSelected.subscribe(selected_place => this.selected_place = selected_place);
+  }
 
   ngOnInit(): void {
   }

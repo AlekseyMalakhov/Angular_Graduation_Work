@@ -1,4 +1,4 @@
-<div id="map">
+<div id="map" (click) = "cancelSelection()">
     <div id = "background"></div>
     <div *ngFor = "let place of places">
         <app-point [place] = "place" [user] = "user"></app-point>

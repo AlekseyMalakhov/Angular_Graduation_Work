@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { PlacesService } from "../places.service";
 
 function getviewportCoords() {  // находим координаты вьюпорта
   var viewportCoords = [];		
@@ -26,8 +27,8 @@ function findPosition(viewportCoords, coords) {     //находим полож�
   var dist_t = place_y - vp_t;
   var dist_b = vp_b - place_y;
 
-  console.log(dist_l + ", " + dist_r);
-  console.log(dist_t + ", " + dist_b);
+  //console.log(dist_l + ", " + dist_r);
+  //console.log(dist_t + ", " + dist_b);
 
   if ((dist_b < 460) && (dist_r > 200) && (dist_t > 460)) {
     pos = "topRight";
@@ -96,8 +97,11 @@ export class PointComponent implements OnInit {
   @Input() user;
 
   mystyle = {display: "none"};
+  selected = false;
+  selected_place;
 
-  constructor() { 
+  constructor(private data: PlacesService) {
+    this.data.currentSelected.subscribe(selected_place => this.selected_place = selected_place);
   }
 
   ngOnInit(): void {
@@ -121,12 +125,21 @@ export class PointComponent implements OnInit {
     this.mystyle = {display: "none"};
   }
 
-  findOwner() {
+  color() {
+    //точки юзера выделяем другим цветом
     var color = "#3f51b5";
     if (this.place.author === this.user) {
+      color = "#418631";
+    }
+    if (this.place.id === this.selected_place.id) {
       color = "red";
     }        
     return color;
+  }
+
+  select(e) {
+    e.stopPropagation();
+    this.data.changeSelectedPlace(this.place);
   }
 
 

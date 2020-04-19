@@ -34,6 +34,11 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.log_out.emit();
-  } 
+  }
+
+  home() {
+    console.log(window.location.href);
+    window.location.href = '';
+  }
 
 }

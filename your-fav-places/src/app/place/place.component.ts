@@ -8,6 +8,7 @@ import { PlacesService } from "../places.service";
 })
 export class PlaceComponent implements OnInit {
   @Input() place;
+  @Input() user;
   selected_place;
 
   constructor(private data: PlacesService) {
@@ -15,6 +16,11 @@ export class PlaceComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  select(e) {
+    e.stopPropagation();
+    this.data.changeSelectedPlace(this.place);
   }
 
 }

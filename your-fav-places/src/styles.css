@@ -22,4 +22,13 @@ app-login {
     display: block;
 }
 
+app-place-page {
+    position: fixed;
+    top: 80px;
+    left: 0px;
+    right: 0px;
+    z-index: 2;
+    display: block;
+}
+
 

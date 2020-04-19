@@ -28,13 +28,17 @@ export class SidenavComponent implements OnInit {
       this.editPlace = true;
       this.mystyle = {minWidth: "300px"};
     } else {
-      this.router.navigate(["/login"]);
+      this.router.navigate(["/show-login"]);
     }    
   }
 
   cancelEditPlace() {
     this.editPlace = false;
     this.mystyle = {minWidth: ""};
+  }
+
+  cancelSelection() {
+    this.data.changeSelectedPlace({});
   }
 
 }

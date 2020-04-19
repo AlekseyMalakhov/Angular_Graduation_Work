@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import {
@@ -33,12 +33,13 @@ const oktaConfig = Object.assign({
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { EditPlaceComponent } from './edit-place/edit-place.component';
+import { PlacePageComponent } from './place-page/place-page.component';
+import { MainComponent } from './main/main.component';
 
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/',
-    pathMatch: 'full'
+    component: MainComponent,
   },
   {
     path: 'implicit/callback',
@@ -47,7 +48,22 @@ const appRoutes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+    outlet: 'log',
   },
+  {
+    path: 'place-page',
+    component: PlacePageComponent,
+  },
+  {
+    path: 'show-login',              //напрямую скобки не кодируются, приходится извращаться c редиректом
+    redirectTo: '/(log:login)',
+    pathMatch: 'full'
+  },
+  {
+    path: '**',
+    redirectTo: '/',
+  },
+  
 ];
 
 @NgModule({
@@ -60,7 +76,9 @@ const appRoutes: Routes = [
     PlaceComponent,
     PointComponent,
     PointCardComponent,
-    EditPlaceComponent
+    EditPlaceComponent,
+    PlacePageComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

@@ -6,11 +6,11 @@
                 <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
             </svg>        
         </button>
-        <span routerLink="/">Your Favorite Places</span>
+        <span (click)="home()">Your Favorite Places</span>
     </div>
     
     <div class="auth_buttons">        
-        <button *ngIf="!user" mat-stroked-button id="login" role="button" routerLink="/login">Login</button>
+        <button *ngIf="!user" mat-stroked-button id="login" role="button" routerLink="/show-login" routerLinkActive="active">Login</button>
         <button *ngIf="!user" mat-stroked-button id="signIn">Sign In</button>
         <span *ngIf="user" class="user_name">{{user}}</span>
         <button *ngIf="user" mat-stroked-button id="logOut" (click)="logout()">Log Out</button>

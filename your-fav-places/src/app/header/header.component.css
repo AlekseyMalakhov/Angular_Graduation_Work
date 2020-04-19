@@ -13,8 +13,16 @@
     z-index: 3;
 }
 
-span {
+span,a {
     padding: 0px 15px;
+    cursor: pointer;
+}
+
+a:hover, a:visited, a:link, a:active
+{
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
 }
 
 button {

@@ -1,8 +1,8 @@
-import { Router } from '@angular/router';
+//import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { PlacesService } from "./places.service";
+//import { PlacesService } from "./places.service";
 import { OktaAuthService } from '@okta/okta-angular';
-import places from "./places";
+//import places from "./places";
 
 @Component({
   selector: 'app-root',
@@ -10,27 +10,29 @@ import places from "./places";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  /*
  places = places;
  arr_places;
+ */
  title = "Your Favorite Places";
- sidenav_pos:string;
+ //sidenav_pos:string;
  user = "";
  isAuthenticated: boolean;
 
- constructor(private router: Router, private data: PlacesService, public oktaAuth: OktaAuthService) {
+ constructor(public oktaAuth: OktaAuthService) {
     this.oktaAuth.$authenticationState.subscribe(isAuthenticated => this.isAuthenticated = isAuthenticated);
  }
 
 async ngOnInit() {
-  this.data.currentPosition.subscribe(sidenav_pos => this.sidenav_pos = sidenav_pos);
+  //this.data.currentPosition.subscribe(sidenav_pos => this.sidenav_pos = sidenav_pos);
   this.isAuthenticated = await this.oktaAuth.isAuthenticated();
   if (this.isAuthenticated) {
     const userClaims = await this.oktaAuth.getUser();
     this.user = userClaims.name;
   }
-  this.createArr();
+  //this.createArr();
 }
-
+/*
  createArr() {
    var arr_places = [];
    var id;
@@ -42,6 +44,7 @@ async ngOnInit() {
    }
    this.arr_places = arr_places;
  }
+ */
 
  logout() {
   this.oktaAuth.logout('/');  

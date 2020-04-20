@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { PlacesService } from "../places.service";
 import { OktaAuthService } from '@okta/okta-angular';
-import places from "../places";
+//import places from "../places";
 
 @Component({
   selector: 'app-main',
@@ -10,7 +10,7 @@ import places from "../places";
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  places = places;
+  places;
   arr_places;
   title = "Your Favorite Places";
   sidenav_pos:string;
@@ -23,6 +23,7 @@ export class MainComponent implements OnInit {
 
   async ngOnInit() {
     this.data.currentPosition.subscribe(sidenav_pos => this.sidenav_pos = sidenav_pos);
+    this.data.currentPlaces.subscribe(places => this.places = places);
     this.isAuthenticated = await this.oktaAuth.isAuthenticated();
     if (this.isAuthenticated) {
       const userClaims = await this.oktaAuth.getUser();

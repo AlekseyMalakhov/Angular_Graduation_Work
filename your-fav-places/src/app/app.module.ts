@@ -51,7 +51,7 @@ const appRoutes: Routes = [
     outlet: 'log',
   },
   {
-    path: 'place-page',
+    path: 'place-page/:author/:id',
     component: PlacePageComponent,
   },
   {

@@ -10,7 +10,7 @@
 
     <ng-container *ngIf="place.id === selected_place.id">
         <mat-card-actions>
-            <a mat-button routerLink="/place-page" routerLinkActive="active">Read more</a>
+            <a mat-button routerLink="/place-page/{{selected_place.author_id}}/{{selected_place.id}}" routerLinkActive="active">Read more</a>
             <button mat-button *ngIf = "place.author === user">Edit</button>
         </mat-card-actions>
     </ng-container>    

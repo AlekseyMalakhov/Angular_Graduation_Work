@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { PlacesService } from "../places.service";
+import { OktaAuthService } from '@okta/okta-angular';
 
 @Component({
   selector: 'app-place-page',
@@ -7,10 +9,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./place-page.component.css']
 })
 export class PlacePageComponent implements OnInit {
+  places;
+  place;
+  user = "";
+  isAuthenticated: boolean;
 
-  constructor(private router: Router) { }
+  constructor(private route: ActivatedRoute, private data: PlacesService, public oktaAuth: OktaAuthService) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    this.data.currentPlaces.subscribe(places => this.places = places);
+    this.getPlace();
+    this.isAuthenticated = await this.oktaAuth.isAuthenticated();
+    if (this.isAuthenticated) {
+      const userClaims = await this.oktaAuth.getUser();
+      this.user = userClaims.name;
+    }
+  }
+
+  getPlace() {
+    var author_id = this.route.snapshot.paramMap.get('author');
+    var id = +this.route.snapshot.paramMap.get('id');
+    var pos = this.places[author_id].findIndex((e) => (e.id === id));
+    this.place = this.places[author_id][pos];
   }
 
 }

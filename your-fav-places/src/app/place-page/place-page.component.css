@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 15px;
+    align-items: flex-start;
+}
+
+h4,h3,h2 {
+    margin: 5px 0;
+}
+
+.location {
+    margin: 15px 0;
+}
+
+.author {
+    color: gray;
+    font-weight: 400;
+}
+
+.content {
+    margin: 0 15px;
+}
+
+img {
+    display: block;
+}
+
+button {
+    margin: 15px 15px;
+}

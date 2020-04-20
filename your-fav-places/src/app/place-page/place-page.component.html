@@ -1,1 +1,15 @@
-<p>place-page works!</p>
+<div class="container">
+    <div class="content">
+        <h2>{{place.name}}</h2>
+        <h4 class="author">{{place.author}}</h4>
+        <h4 class="location">Location coordinates: {{place.coords}}</h4>
+        <img src="/assets/pics/places/{{place.img}}" alt="{{place.name}} picture">
+        <p>{{place.description}}</p>
+    </div>
+    
+    <div class = "actions" *ngIf = "place.author === user">
+        <button mat-raised-button>Edit</button>
+        <button mat-raised-button>Delete</button>
+    </div>
+
+</div>

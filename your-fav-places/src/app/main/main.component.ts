@@ -16,6 +16,7 @@ export class MainComponent implements OnInit {
   sidenav_pos:string;
   user = "";
   isAuthenticated: boolean;
+  sidenavButtonDisplay;
 
   constructor(private router: Router, private data: PlacesService, public oktaAuth: OktaAuthService) {
       this.oktaAuth.$authenticationState.subscribe(isAuthenticated => this.isAuthenticated = isAuthenticated);
@@ -24,6 +25,8 @@ export class MainComponent implements OnInit {
   async ngOnInit() {
     this.data.currentPosition.subscribe(sidenav_pos => this.sidenav_pos = sidenav_pos);
     this.data.currentPlaces.subscribe(places => this.places = places);
+    this.data.currentSidenavButton.subscribe(sidenavButtonDisplay => this.sidenavButtonDisplay = sidenavButtonDisplay);
+    this.data.changeSidenavButton("show_button");
     this.isAuthenticated = await this.oktaAuth.isAuthenticated();
     if (this.isAuthenticated) {
       const userClaims = await this.oktaAuth.getUser();
@@ -42,9 +45,5 @@ export class MainComponent implements OnInit {
       }
     }
     this.arr_places = arr_places;
-  }
-
-  logout() {
-    this.oktaAuth.logout('/');  
   }
 }

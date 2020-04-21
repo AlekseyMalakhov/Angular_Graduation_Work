@@ -16,6 +16,7 @@
 span,a {
     padding: 0px 15px;
     cursor: pointer;
+    vertical-align: middle;
 }
 
 a:hover, a:visited, a:link, a:active
@@ -36,4 +37,12 @@ button {
 .user_name {
     font-size: 14px;
     font-weight: 500;
+}
+
+.show_button {
+    visibility: visible;
+}
+
+.hide_button {
+    visibility: hidden;
 }

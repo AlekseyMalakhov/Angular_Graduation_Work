@@ -13,11 +13,14 @@ export class PlacePageComponent implements OnInit {
   place;
   user = "";
   isAuthenticated: boolean;
+  sidenavButtonDisplay;
 
   constructor(private route: ActivatedRoute, private data: PlacesService, public oktaAuth: OktaAuthService) { }
 
   async ngOnInit() {
     this.data.currentPlaces.subscribe(places => this.places = places);
+    this.data.currentSidenavButton.subscribe(sidenavButtonDisplay => this.sidenavButtonDisplay = sidenavButtonDisplay);
+    this.data.changeSidenavButton("hide_button");
     this.getPlace();
     this.isAuthenticated = await this.oktaAuth.isAuthenticated();
     if (this.isAuthenticated) {

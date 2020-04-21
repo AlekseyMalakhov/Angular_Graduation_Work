@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PlacesService } from "../places.service";
 
 @Component({
   selector: 'app-all-places-card',
@@ -9,10 +8,9 @@ import { PlacesService } from "../places.service";
 export class AllPlacesCardComponent implements OnInit {
   @Input() place;
 
-  constructor(private data: PlacesService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.data.changeSidenavButton("hide_button");
   }
 
 }

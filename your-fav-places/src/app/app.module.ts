@@ -49,6 +49,10 @@ const appRoutes: Routes = [
     component: AllPlacesPageComponent,
   },
   {
+    path: 'user-places-page/:author',
+    component: UserPlacesPageComponent,
+  },
+  {
     path: 'implicit/callback',
     component: OktaCallbackComponent,
   },

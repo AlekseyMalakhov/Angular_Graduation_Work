@@ -9,6 +9,8 @@ import { PlacesService } from "../places.service";
 
 export class HeaderComponent implements OnInit {
   @Input() user;
+  @Input() userId;
+
   @Output("logout") 
   log_out: EventEmitter<any> = new EventEmitter();
   sidenav_pos: string;
@@ -41,6 +43,10 @@ export class HeaderComponent implements OnInit {
   home() {
     console.log(window.location.href);
     window.location.href = '';
+  }
+
+  back() {
+    window.history.back();
   }
 
 }

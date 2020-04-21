@@ -53,11 +53,3 @@ button {
     font-size: 14px;
     font-weight: 500;
 }
-
-.show_button {
-    visibility: visible;
-}
-
-.hide_button {
-    visibility: hidden;
-}

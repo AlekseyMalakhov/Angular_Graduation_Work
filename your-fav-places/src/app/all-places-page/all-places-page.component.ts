@@ -14,9 +14,8 @@ export class AllPlacesPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.data.currentPlaces.subscribe(places => this.places = places);
-    console.log(this.places);
+    this.data.changeSidenavButton("hide_button");
     this.createArr();
-    console.log(this.arr_places);
   }
 
   createArr() {

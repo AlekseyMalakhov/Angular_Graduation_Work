@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
  title = "Your Favorite Places";
  //sidenav_pos:string;
  user = "";
+ userId = "";
  isAuthenticated: boolean;
 
  constructor(public oktaAuth: OktaAuthService) {
@@ -29,6 +30,7 @@ async ngOnInit() {
   if (this.isAuthenticated) {
     const userClaims = await this.oktaAuth.getUser();
     this.user = userClaims.name;
+    this.userId = userClaims.nickname;
   }
   //this.createArr();
 }

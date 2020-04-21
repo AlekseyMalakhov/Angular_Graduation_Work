@@ -22,7 +22,7 @@ app-login {
     display: block;
 }
 
-app-place-page,app-all-places-page {
+app-place-page,app-all-places-page,app-user-places-page {
     position: relative;
     top: 80px;
 }

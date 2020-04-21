@@ -10,7 +10,7 @@ export class PlacesService {
   private sidenavPos = new BehaviorSubject("show");       //скрываем/показываем сайднав
   currentPosition = this.sidenavPos.asObservable();
 
-  private sidenavButton = new BehaviorSubject("show_button");          //скрываем/показываем кнопку сайднав
+  private sidenavButton = new BehaviorSubject("show_button");          //переключаем кнопку кнопку сайднав/назад
   currentSidenavButton = this.sidenavButton.asObservable();
 
   private selectedPlace = new BehaviorSubject({});          //объект выбранного места

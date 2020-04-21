@@ -35,11 +35,18 @@ import { LoginComponent } from './login/login.component';
 import { EditPlaceComponent } from './edit-place/edit-place.component';
 import { PlacePageComponent } from './place-page/place-page.component';
 import { MainComponent } from './main/main.component';
+import { AllPlacesPageComponent } from './all-places-page/all-places-page.component';
+import { AllPlacesCardComponent } from './all-places-card/all-places-card.component';
+import { UserPlacesPageComponent } from './user-places-page/user-places-page.component';
 
 const appRoutes: Routes = [
   {
     path: '',
     component: MainComponent,
+  },
+  {
+    path: 'all-places-page',
+    component: AllPlacesPageComponent,
   },
   {
     path: 'implicit/callback',
@@ -78,7 +85,10 @@ const appRoutes: Routes = [
     PointCardComponent,
     EditPlaceComponent,
     PlacePageComponent,
-    MainComponent
+    MainComponent,
+    AllPlacesPageComponent,
+    AllPlacesCardComponent,
+    UserPlacesPageComponent
   ],
   imports: [
     BrowserModule,

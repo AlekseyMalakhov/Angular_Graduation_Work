@@ -1,6 +1,7 @@
 #header {
     position: fixed;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     padding-right: 30px;
     background-color: #3f51b5;
@@ -15,12 +16,26 @@
 
 span,a {
     padding: 0px 15px;
-    cursor: pointer;
     vertical-align: middle;
 }
 
-a:hover, a:visited, a:link, a:active
-{
+.content-left {
+    flex: auto;
+}
+
+.content-right {
+    flex: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.push {
+    cursor: pointer;
+}
+
+a:hover, a:visited, a:link, a:active {
     color: #fff;
     font-size: 20px;
     text-decoration: none;

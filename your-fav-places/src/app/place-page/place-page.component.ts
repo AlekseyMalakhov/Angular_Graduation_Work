@@ -19,7 +19,7 @@ export class PlacePageComponent implements OnInit {
 
   async ngOnInit() {
     this.data.currentPlaces.subscribe(places => this.places = places);
-    this.data.currentSidenavButton.subscribe(sidenavButtonDisplay => this.sidenavButtonDisplay = sidenavButtonDisplay);
+    //this.data.currentSidenavButton.subscribe(sidenavButtonDisplay => this.sidenavButtonDisplay = sidenavButtonDisplay);
     this.data.changeSidenavButton("hide_button");
     this.getPlace();
     this.isAuthenticated = await this.oktaAuth.isAuthenticated();
@@ -34,6 +34,10 @@ export class PlacePageComponent implements OnInit {
     var id = +this.route.snapshot.paramMap.get('id');
     var pos = this.places[author_id].findIndex((e) => (e.id === id));
     this.place = this.places[author_id][pos];
+  }
+
+  back() {
+    window.history.back();
   }
 
 }

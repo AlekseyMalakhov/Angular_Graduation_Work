@@ -10,11 +10,13 @@ import { PlacesService } from "../places.service";
 export class UserPlacesPageComponent implements OnInit {
   places;
   user_places;
+  search_string: string;
 
   constructor(private route: ActivatedRoute, private data: PlacesService) { }
 
   ngOnInit(): void {
     this.data.currentPlaces.subscribe(places => this.places = places);
+    this.data.currentSearchString.subscribe(search_string => this.search_string = search_string);
     this.data.changeSidenavButton("hide_button");
     this.getPlaces();
   }
@@ -26,6 +28,15 @@ export class UserPlacesPageComponent implements OnInit {
 
   back() {
     window.history.back();
+  }
+
+  search(name: string) {
+    var name = name.toLowerCase();
+    var str = this.search_string.toLowerCase();
+    if (name.indexOf(str) !== -1) {
+      return true;
+    }
+    return false;
   }
 
 }

@@ -1,6 +1,8 @@
 <div class="container">
     <h2>My places</h2>
     <div *ngFor = "let place of user_places">
-        <app-all-places-card [place] = "place" [userpage] = "true"></app-all-places-card>
+        <ng-container *ngIf="search(place.name)">
+            <app-all-places-card [place] = "place" [userpage] = "true"></app-all-places-card>
+        </ng-container>        
     </div>
 </div>

@@ -17,6 +17,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
+import {MatTooltipModule} from '@angular/material/tooltip';
 import { PlaceComponent } from './place/place.component';
 import { PointComponent } from './point/point.component';
 import { PointCardComponent } from './point-card/point-card.component';
@@ -38,6 +39,7 @@ import { MainComponent } from './main/main.component';
 import { AllPlacesPageComponent } from './all-places-page/all-places-page.component';
 import { AllPlacesCardComponent } from './all-places-card/all-places-card.component';
 import { UserPlacesPageComponent } from './user-places-page/user-places-page.component';
+import { FilterComponent } from './filter/filter.component';
 
 const appRoutes: Routes = [
   {
@@ -92,7 +94,8 @@ const appRoutes: Routes = [
     MainComponent,
     AllPlacesPageComponent,
     AllPlacesCardComponent,
-    UserPlacesPageComponent
+    UserPlacesPageComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
@@ -103,6 +106,7 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatCardModule,
     MatInputModule,
+    MatTooltipModule,
   ],
   providers: [
     { provide: OKTA_CONFIG, useValue: oktaConfig },

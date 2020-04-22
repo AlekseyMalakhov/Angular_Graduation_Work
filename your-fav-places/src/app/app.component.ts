@@ -1,6 +1,6 @@
 //import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-//import { PlacesService } from "./places.service";
+import { PlacesService } from "./places.service";
 import { OktaAuthService } from '@okta/okta-angular';
 //import places from "./places";
 
@@ -19,13 +19,15 @@ export class AppComponent implements OnInit {
  user = "";
  userId = "";
  isAuthenticated: boolean;
+ filterDisplay: boolean;
 
- constructor(public oktaAuth: OktaAuthService) {
+ constructor(public oktaAuth: OktaAuthService, private data: PlacesService) {
     this.oktaAuth.$authenticationState.subscribe(isAuthenticated => this.isAuthenticated = isAuthenticated);
  }
 
 async ngOnInit() {
   //this.data.currentPosition.subscribe(sidenav_pos => this.sidenav_pos = sidenav_pos);
+  this.data.currentFilterDisplay.subscribe(filterDisplay => this.filterDisplay = filterDisplay);
   this.isAuthenticated = await this.oktaAuth.isAuthenticated();
   if (this.isAuthenticated) {
     const userClaims = await this.oktaAuth.getUser();

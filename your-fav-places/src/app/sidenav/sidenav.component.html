@@ -11,7 +11,9 @@
 
     <ng-container *ngIf="!editPlace && !selected_place.id">
         <div *ngFor = "let place of places">
-            <app-place [place] = "place" [user] = "user"></app-place>
+            <ng-container *ngIf="search(place.name)">
+                <app-place [place] = "place" [user] = "user"></app-place>
+            </ng-container>            
         </div>
     </ng-container>
 

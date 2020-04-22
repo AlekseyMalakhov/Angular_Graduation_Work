@@ -24,10 +24,6 @@ export class SidenavComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  ngDoCheck() {
-    console.log(this.search_string);
-  }
-
   addPlace() {
     if (this.user) {
       console.log("add place for " + this.user);
@@ -36,6 +32,15 @@ export class SidenavComponent implements OnInit {
     } else {
       this.router.navigate(["/show-login"]);
     }    
+  }
+
+  search(name: string) {
+    var name = name.toLowerCase();
+    var str = this.search_string.toLowerCase();
+    if (name.indexOf(str) !== -1) {
+      return true;
+    }
+    return false;
   }
 
   cancelEditPlace() {

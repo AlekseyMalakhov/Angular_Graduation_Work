@@ -22,6 +22,9 @@ export class PlacesService {
   private searchString = new BehaviorSubject("");          //переключаем кнопку кнопку сайднав/назад
   currentSearchString = this.searchString.asObservable();
 
+  private filterDisplay = new BehaviorSubject(false);          //переключаем отображение фильтра
+  currentFilterDisplay = this.filterDisplay.asObservable();
+
   constructor() { }
 
   changeSidenavPos(position: string) {
@@ -42,5 +45,9 @@ export class PlacesService {
 
   changeSearchString(search: string) {
     this.searchString.next(search);
+  }
+
+  changeFilterDisplay(filter_display: boolean) {
+    this.filterDisplay.next(filter_display);
   }
 }

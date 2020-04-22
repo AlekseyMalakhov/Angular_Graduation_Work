@@ -1,7 +1,9 @@
 <div class="container">
     <h2>List of places</h2>
     <div *ngFor = "let place of arr_places">
-        <app-all-places-card [place] = "place"></app-all-places-card>
+        <ng-container *ngIf="search(place.name)">
+            <app-all-places-card [place] = "place"></app-all-places-card>
+        </ng-container>        
     </div>
 </div>
 

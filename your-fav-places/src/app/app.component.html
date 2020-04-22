@@ -1,4 +1,8 @@
 <app-header [user] = "user" [userId] = "userId" (logout)="logout()"></app-header>
+<ng-container *ngIf="filterDisplay">
+    <app-filter></app-filter>
+</ng-container>
+
 <!--
     <app-map [places] = "arr_places" [user] = "user"></app-map>
 <app-sidenav [class] = "sidenav_pos" [places] = "arr_places" [user] = "user"></app-sidenav>

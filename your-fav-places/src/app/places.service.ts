@@ -19,9 +19,12 @@ export class PlacesService {
   private placesList = new BehaviorSubject(places);       //список мест
   currentPlaces = this.placesList.asObservable();
 
+  private searchString = new BehaviorSubject("");          //переключаем кнопку кнопку сайднав/назад
+  currentSearchString = this.searchString.asObservable();
+
   constructor() { }
 
-  changeMessage(position: string) {
+  changeSidenavPos(position: string) {
     this.sidenavPos.next(position);
   }
 
@@ -35,5 +38,9 @@ export class PlacesService {
 
   changePlaces(newPlaces) {
     this.placesList.next(newPlaces);
+  }
+
+  changeSearchString(search: string) {
+    this.searchString.next(search);
   }
 }

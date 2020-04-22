@@ -14,12 +14,18 @@ export class SidenavComponent implements OnInit {
   editPlace = false;
   mystyle = {};
   selected_place;
+  search_string: string;
 
   constructor(private router: Router, private data: PlacesService) {
     this.data.currentSelected.subscribe(selected_place => this.selected_place = selected_place);
+    this.data.currentSearchString.subscribe(search_string => this.search_string = search_string);
   }
 
   ngOnInit(): void {
+  }
+
+  ngDoCheck() {
+    console.log(this.search_string);
   }
 
   addPlace() {

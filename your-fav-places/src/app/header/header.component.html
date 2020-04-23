@@ -10,7 +10,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="36px" height="36px">
                 <path d="M0 0h24v24H0z" fill="none"/>
                 <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
-            </svg>        
+            </svg>   
         </button>
         <span class = "push" (click)="home()">Your Favorite Places</span>
     </div>
@@ -21,7 +21,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="white">
                 <path d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"/>
                 <path d="M0 0h24v24H0z" fill="none"/>
-            </svg>       
+            </svg>
         </button>
         <button mat-icon-button (click)="toggleSearchBox()" matTooltip="Search">
             <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="white">
@@ -30,7 +30,7 @@
             </svg>       
         </button>
         <input type="text" *ngIf="searchbox" (keyup) = "search($event)" placeholder="Name of the place">
-        <button mat-button routerLink="/all-places-page" routerLinkActive="active">All Places</button>       
+        <button mat-button routerLink="/all-places-page" routerLinkActive="active" matTooltip="List of places">All Places</button>       
         
         <div class="auth_buttons" *ngIf="!user">
             <button mat-stroked-button id="login" routerLink="/show-login" routerLinkActive="active">Login</button>

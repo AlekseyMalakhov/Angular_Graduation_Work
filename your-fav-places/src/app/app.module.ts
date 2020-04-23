@@ -18,6 +18,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field'; 
 import { PlaceComponent } from './place/place.component';
 import { PointComponent } from './point/point.component';
 import { PointCardComponent } from './point-card/point-card.component';
@@ -107,6 +109,8 @@ const appRoutes: Routes = [
     MatCardModule,
     MatInputModule,
     MatTooltipModule,
+    MatSelectModule,
+    MatFormFieldModule,
   ],
   providers: [
     { provide: OKTA_CONFIG, useValue: oktaConfig },

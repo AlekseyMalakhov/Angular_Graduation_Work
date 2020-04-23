@@ -7,3 +7,9 @@ app-sidenav.hide {
     display: none;
 }
 */
+
+app-filter {
+    position: relative;
+    top: 64px;
+    color: black;
+}

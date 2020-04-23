@@ -1,6 +1,29 @@
+
 .filter {
-    position: fixed;
-    top: 70px;
-    left: 300px;
+    position: relative;
+    display: flex;
     z-index: 3;
+}
+
+.pusher {
+    width: 15%;
+    min-width: 230px;
+}
+
+.content {
+    width: 85%;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+mat-form-field {
+    width: 110px;
+    margin: 5px 15px;
+}
+
+.author {
+    width: 200px;
 }

@@ -3,28 +3,28 @@
     <div class = "content">
         <mat-form-field class="author">
             <mat-label>Author</mat-label>
-            <mat-select>
+            <mat-select (selectionChange) = "showAuthors($event)">
                 <mat-option *ngFor = "let author of listOfAuthors" [value]="author">{{author}}</mat-option>
             </mat-select>
         </mat-form-field>
         <div>
             <mat-form-field hintLabel="min 0">
                 <mat-label>Min Latitude</mat-label>
-                <input matInput placeholder="500">
+                <input type = "number" matInput placeholder="500" (input) = "onChangeMinLat($event)">
             </mat-form-field>
             <mat-form-field hintLabel="max 1200">
                 <mat-label>Max Latitude</mat-label>
-                <input matInput placeholder="800">
+                <input type = "number" matInput placeholder="800" (input) = "onChangeMaxLat($event)">
             </mat-form-field>
         </div>
         <div>
             <mat-form-field hintLabel="min 0">
                 <mat-label>Min Longitude</mat-label>
-                <input matInput placeholder="200">
+                <input type = "number" matInput placeholder="200" (input) = "onChangeMinLong($event)">
             </mat-form-field>
             <mat-form-field hintLabel="max 2400">
                 <mat-label>Max Longitude</mat-label>
-                <input matInput placeholder="800">
+                <input type = "number" matInput placeholder="800" (input) = "onChangeMaxLong($event)">
             </mat-form-field>
         </div>      
     </div>

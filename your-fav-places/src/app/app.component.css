@@ -9,7 +9,9 @@ app-sidenav.hide {
 */
 
 app-filter {
-    position: relative;
+    position: fixed;
     top: 64px;
+    width: 100%;
     color: black;
+    z-index: 3;
 }

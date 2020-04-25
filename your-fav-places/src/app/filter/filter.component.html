@@ -1,6 +1,6 @@
 <div class="filter">
     <div class = "pusher"></div>
-    <div class = "content">
+    <form class = "content">
         <mat-form-field class="author">
             <mat-label>Author</mat-label>
             <mat-select (selectionChange) = "showAuthors($event)">
@@ -8,25 +8,33 @@
             </mat-select>
         </mat-form-field>
         <div>
-            <mat-form-field hintLabel="min 0">
+            <mat-form-field hintLabel="min 0, max 1200">
                 <mat-label>Min Latitude</mat-label>
-                <input type = "number" matInput placeholder="500" (input) = "onChangeMinLat($event)">
+                <input type = "number" matInput placeholder="500" pattern="([0-9]|[1-8][0-9]|9[0-9]|[1-8][0-9]{2}|9[0-8][0-9]|99[0-9]|1[01][0-9]{2}|1200)"
+                name = "min_latitude" [(ngModel)]="min_lat">
+                <mat-error>Out of range</mat-error>
             </mat-form-field>
-            <mat-form-field hintLabel="max 1200">
+            <mat-form-field hintLabel="min 0, max 1200">
                 <mat-label>Max Latitude</mat-label>
-                <input type = "number" matInput placeholder="800" (input) = "onChangeMaxLat($event)">
+                <input type = "number" matInput placeholder="800" pattern="([0-9]|[1-8][0-9]|9[0-9]|[1-8][0-9]{2}|9[0-8][0-9]|99[0-9]|1[01][0-9]{2}|1200)"
+                name = "max_latitude" [(ngModel)]="max_lat">
+                <mat-error>Out of range</mat-error>
             </mat-form-field>
         </div>
         <div>
-            <mat-form-field hintLabel="min 0">
+            <mat-form-field hintLabel="min 0, max 2400">
                 <mat-label>Min Longitude</mat-label>
-                <input type = "number" matInput placeholder="200" (input) = "onChangeMinLong($event)">
+                <input type = "number" matInput placeholder="200" pattern="([0-9]|[1-8][0-9]|9[0-9]|[1-8][0-9]{2}|9[0-8][0-9]|99[0-9]|1[0-9]{3}|2[0-3][0-9]{2}|2400)"
+                name = "min_longitude" [(ngModel)]="min_long">
+                <mat-error>Out of range</mat-error>
             </mat-form-field>
-            <mat-form-field hintLabel="max 2400">
+            <mat-form-field hintLabel="min 0, max 2400">
                 <mat-label>Max Longitude</mat-label>
-                <input type = "number" matInput placeholder="800" (input) = "onChangeMaxLong($event)">
+                <input type = "number" matInput placeholder="800" pattern="([0-9]|[1-8][0-9]|9[0-9]|[1-8][0-9]{2}|9[0-8][0-9]|99[0-9]|1[0-9]{3}|2[0-3][0-9]{2}|2400)" 
+                name = "max_longitude" [(ngModel)]="max_long">
+                <mat-error>Out of range</mat-error>
             </mat-form-field>
         </div>      
-    </div>
+    </form>
 </div>
 

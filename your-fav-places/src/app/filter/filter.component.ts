@@ -32,24 +32,4 @@ export class FilterComponent implements OnInit {
     console.log(this.author);
   }
 
-  onChangeMinLat(e) {
-    this.min_lat = e.target.value;
-    console.log(this.min_lat);
-  }
-
-  onChangeMaxLat(e) {
-    this.max_lat = e.target.value;
-    console.log(this.max_lat);
-  }
-
-  onChangeMinLong(e) {
-    this.min_long = e.target.value;
-    console.log(this.min_long);
-  }
-
-  onChangeMaxLong(e) {
-    this.max_long = e.target.value;
-    console.log(this.max_long);
-  }
-
 }

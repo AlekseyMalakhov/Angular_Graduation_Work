@@ -28,6 +28,7 @@ export class MainComponent implements OnInit {
   }
 
   async ngOnInit() {
+    this.data.changeUserPage(false);
     this.data.currentPosition.subscribe(sidenav_pos => this.sidenav_pos = sidenav_pos);
     //this.data.currentPlaces.subscribe(places => this.places = places);
     this.data.currentFilteredPlaces.subscribe(places => this.places = places);

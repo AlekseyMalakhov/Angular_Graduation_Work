@@ -9,22 +9,27 @@ import { PlacesService } from "../places.service";
 })
 export class UserPlacesPageComponent implements OnInit {
   places;
-  user_places;
+  //user_places;
   search_string: string;
 
   constructor(private route: ActivatedRoute, private data: PlacesService) { }
 
   ngOnInit(): void {
-    this.data.currentPlaces.subscribe(places => this.places = places);
+    //var author_id = this.route.snapshot.paramMap.get('author');
+    //this.data.currentPlaces.subscribe(places => this.places = places);
+    this.data.changeUserPage(true);
+    this.data.currentFilteredPlaces.subscribe(places => this.places = places);
     this.data.currentSearchString.subscribe(search_string => this.search_string = search_string);
     this.data.changeSidenavButton("hide_button");
-    this.getPlaces();
+    //this.getPlaces();
   }
 
+  /*
   getPlaces() {
     var author_id = this.route.snapshot.paramMap.get('author');
     this.user_places = this.places[author_id];
   }
+  */
 
   back() {
     window.history.back();

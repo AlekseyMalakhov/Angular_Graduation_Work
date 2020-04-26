@@ -12,7 +12,8 @@
                 <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
             </svg>   
         </button>
-        <span class = "push" (click)="home()">Your Favorite Places</span>
+        <!--<span class = "push" routerLink="/" routerLinkActive="active" matTooltip="Home">Your Favorite Places</span>-->
+        <button class = "title" mat-button routerLink="/" routerLinkActive="active" matTooltip="Home">Your Favorite Places</button> 
     </div>
 
     
@@ -38,7 +39,7 @@
         </div>
         
         <div class="auth_buttons" *ngIf="user">            
-            <button mat-button routerLink="/user-places-page/{{userId}}" routerLinkActive="active">{{user}}</button>
+            <button mat-button routerLink="/user-places-page/{{userId}}" routerLinkActive="active" matTooltip="My places">{{user}}</button>
             <button mat-stroked-button id="logOut" (click)="logout()">Log Out</button>
         </div> 
     </div>       

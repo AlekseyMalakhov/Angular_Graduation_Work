@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   //sidenav_pos:string;
   user = "";
   userId = "";
+  user_page: boolean;
   isAuthenticated: boolean;
 
   filter;
@@ -28,6 +29,7 @@ export class AppComponent implements OnInit {
 
 async ngOnInit() {
   //this.data.currentPosition.subscribe(sidenav_pos => this.sidenav_pos = sidenav_pos);
+  this.data.currentUserPage.subscribe(user_page => this.user_page = user_page);
   this.data.currentPlaces.subscribe(places => this.places = places);
   this.createArr();
   this.data.currentFilterDisplay.subscribe(filterDisplay => this.filterDisplay = filterDisplay);
@@ -44,10 +46,27 @@ async ngOnInit() {
 ngDoCheck() {
   if (this.arr_places) {
     var result = [...this.arr_places];
+    if (this.user_page) {
+      /*
+      var filter_user_page = {
+        author: this.user,
+        min_lat: 0,
+        max_lat: 0,
+        min_long: 0,
+        max_long: 0,
+      };
+      this.data.changeFilter(filter_user_page);
+      */
+      result = result.map((e) => {
+        if (e && e.author === this.user) {
+          return e;
+        }
+      });
+    }
     if (this.filterDisplay) {
-      if (this.filter.author && (this.filter.author !== "All authors")) {
+      if (this.filter.author && (this.filter.author !== "All authors") && !this.user_page) {
         result = result.map((e) => {
-          if (e.author === this.filter.author) {
+          if (e && e.author === this.filter.author) {
             return e;
           }
         });

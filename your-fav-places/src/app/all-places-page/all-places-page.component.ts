@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlacesService } from "../places.service";
 
-
 @Component({
   selector: 'app-all-places-page',
   templateUrl: './all-places-page.component.html',
@@ -10,13 +9,18 @@ import { PlacesService } from "../places.service";
 export class AllPlacesPageComponent implements OnInit {
   places;
   //arr_places;
+  //filter;
   search_string: string;
   constructor(private data: PlacesService) { }
 
   ngOnInit(): void {
+    //this.data.currentFilter.subscribe(filter => this.filter = filter);
+    //this.filter.author = "All authors";
+    //this.data.changeFilter(this.filter);
     this.data.currentFilteredPlaces.subscribe(places => this.places = places);
     this.data.currentSearchString.subscribe(search_string => this.search_string = search_string);
     this.data.changeSidenavButton("hide_button");
+    this.data.changeUserPage(false);
     //this.createArr();
   }
 

@@ -1,4 +1,6 @@
 <form class = "content">
+    <!--<mat-form-field class="author" [class] = "checkVisibility()">-->
+    <!--<mat-form-field class="author" *ngIf = "!user_page">-->
     <mat-form-field class="author">
         <mat-label>Author</mat-label>
         <mat-select [(ngModel)]="filter.author" name="author">

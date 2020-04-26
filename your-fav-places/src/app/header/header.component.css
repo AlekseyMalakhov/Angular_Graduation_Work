@@ -14,9 +14,10 @@
     z-index: 3;
 }
 
-span,a {
+span {
     padding: 0px 15px;
     vertical-align: middle;
+    text-decoration: none;
 }
 
 .content-left {
@@ -52,4 +53,11 @@ button {
 .user_name {
     font-size: 14px;
     font-weight: 500;
+}
+
+.title {
+    position: relative;
+    top: 2px;
+    font-size: 20px;
+    font-weight: normal;
 }

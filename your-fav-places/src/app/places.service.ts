@@ -39,6 +39,9 @@ export class PlacesService {
   private filteredPlaces = new BehaviorSubject([]);        //раздаем отфильтрованный список мест
   currentFilteredPlaces = this.filteredPlaces.asObservable();
 
+  private userPage = new BehaviorSubject(false);             //проверяем если мы на странице пользователя (тогда показываем только его места)
+  currentUserPage = this.userPage.asObservable();
+
 
   constructor() { }
 
@@ -72,6 +75,10 @@ export class PlacesService {
 
   changeFilteredPlaces(filtered_places) {
     this.filteredPlaces.next(filtered_places);
-    console.log(filtered_places);
+  }
+
+  changeUserPage(user_page: boolean) {
+    this.userPage.next(user_page);
+    console.log(user_page);
   }
 }

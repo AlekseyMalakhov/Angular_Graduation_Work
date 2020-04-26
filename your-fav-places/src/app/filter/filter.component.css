@@ -31,3 +31,11 @@ mat-form-field {
 .author {
     width: 200px;
 }
+
+.show {
+    visibility: visible;
+}
+
+.hide {
+    visibility: hidden;
+}

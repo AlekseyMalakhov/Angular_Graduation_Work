@@ -7,6 +7,7 @@ import { PlacesService } from "../places.service";
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent implements OnInit {
+  user_page: boolean;
 
   filter = {
     author: "All authors",
@@ -26,6 +27,7 @@ export class FilterComponent implements OnInit {
   ];
 
   constructor(private data: PlacesService) {
+    this.data.currentUserPage.subscribe(user_page => this.user_page = user_page);
     this.data.currentFilter.subscribe(filter => this.filter = filter);
    }
 
@@ -34,6 +36,14 @@ export class FilterComponent implements OnInit {
   
   ngDoCheck() {
     this.data.changeFilter(this.filter);
+  }
+
+  checkVisibility() {
+    if (this.user_page) {
+      return "hide";
+    } else {
+      return "show";
+    }
   }
   
 

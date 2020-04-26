@@ -1,13 +1,14 @@
 <div id="map" (click) = "cancelSelection()">
-    <div id = "background"></div>
-    <div *ngFor = "let place of places">
-        <app-point [place] = "place" [user] = "user"></app-point>
-    </div>
+    <div id = "background"></div>    
+        <div *ngFor = "let place of places">
+            <ng-container *ngIf="place">
+                <app-point [place] = "place" [user] = "user"></app-point>
+            </ng-container> 
+                
 
-    <!--<div *ngFor = "let author_id of Object.keys(places)">
-        <div *ngFor = "let place of places[author_id]">
-            <app-point [place] = "place"></app-point>
-        </div>        
-    </div>-->
+                <!--<ng-container *ngIf="filterDisplay && (filtered_places.indexOf(place.id) !== -1)">
+                <app-point [place] = "place" [user] = "user"></app-point>
+            </ng-container>  -->          
+        </div>  
 </div>
 

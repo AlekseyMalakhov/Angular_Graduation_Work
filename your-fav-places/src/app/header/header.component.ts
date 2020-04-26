@@ -1,6 +1,14 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { PlacesService } from "../places.service";
 
+var filter_init = {
+  author: "All authors",
+  min_lat: 0,
+  max_lat: 0,
+  min_long: 0,
+  max_long: 0,
+};
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -55,6 +63,7 @@ export class HeaderComponent implements OnInit {
       this.data.changeFilterDisplay(true);
     } else {
       this.data.changeFilterDisplay(false);
+      this.data.changeFilter(filter_init);
     }
   }
 

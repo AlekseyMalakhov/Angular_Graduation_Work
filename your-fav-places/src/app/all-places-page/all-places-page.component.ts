@@ -9,17 +9,18 @@ import { PlacesService } from "../places.service";
 })
 export class AllPlacesPageComponent implements OnInit {
   places;
-  arr_places;
+  //arr_places;
   search_string: string;
   constructor(private data: PlacesService) { }
 
   ngOnInit(): void {
-    this.data.currentPlaces.subscribe(places => this.places = places);
+    this.data.currentFilteredPlaces.subscribe(places => this.places = places);
     this.data.currentSearchString.subscribe(search_string => this.search_string = search_string);
     this.data.changeSidenavButton("hide_button");
-    this.createArr();
+    //this.createArr();
   }
 
+  /*
   createArr() {
     var arr_places = [];
     var id;
@@ -31,6 +32,7 @@ export class AllPlacesPageComponent implements OnInit {
     }
     this.arr_places = arr_places;
   }
+  */
 
   search(name: string) {
     var name = name.toLowerCase();

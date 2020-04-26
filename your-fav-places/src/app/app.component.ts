@@ -10,33 +10,82 @@ import { OktaAuthService } from '@okta/okta-angular';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  /*
- places = places;
- arr_places;
- */
- title = "Your Favorite Places";
- //sidenav_pos:string;
- user = "";
- userId = "";
- isAuthenticated: boolean;
- filterDisplay: boolean;
+  places;
+  arr_places;
+  title = "Your Favorite Places";
+  //sidenav_pos:string;
+  user = "";
+  userId = "";
+  isAuthenticated: boolean;
 
- constructor(public oktaAuth: OktaAuthService, private data: PlacesService) {
-    this.oktaAuth.$authenticationState.subscribe(isAuthenticated => this.isAuthenticated = isAuthenticated);
- }
+  filter;
+  filterDisplay: boolean = false;
+  filtered_places = [];
+
+  constructor(public oktaAuth: OktaAuthService, private data: PlacesService) {
+      this.oktaAuth.$authenticationState.subscribe(isAuthenticated => this.isAuthenticated = isAuthenticated);
+  }
 
 async ngOnInit() {
   //this.data.currentPosition.subscribe(sidenav_pos => this.sidenav_pos = sidenav_pos);
+  this.data.currentPlaces.subscribe(places => this.places = places);
+  this.createArr();
+  this.data.currentFilterDisplay.subscribe(filterDisplay => this.filterDisplay = filterDisplay);
+  this.data.currentFilter.subscribe(filter => this.filter = filter);
   this.data.currentFilterDisplay.subscribe(filterDisplay => this.filterDisplay = filterDisplay);
   this.isAuthenticated = await this.oktaAuth.isAuthenticated();
   if (this.isAuthenticated) {
     const userClaims = await this.oktaAuth.getUser();
     this.user = userClaims.name;
     this.userId = userClaims.nickname;
-  }
-  //this.createArr();
+  }  
 }
-/*
+
+ngDoCheck() {
+  if (this.arr_places) {
+    var result = [...this.arr_places];
+    if (this.filterDisplay) {
+      if (this.filter.author && (this.filter.author !== "All authors")) {
+        result = result.map((e) => {
+          if (e.author === this.filter.author) {
+            return e;
+          }
+        });
+      }
+      if (this.filter.min_lat) {
+        result = result.map((e) => {
+          if (e && (e.coords[1] > this.filter.min_lat)) {
+            return e;
+          }
+        });
+      }
+      if (this.filter.max_lat) {
+        result = result.map((e) => {
+          if (e && (e.coords[1] < this.filter.max_lat)) {
+            return e;
+          }
+        });
+      }
+      if (this.filter.min_long) {
+        result = result.map((e) => {
+          if (e && (e.coords[0] > this.filter.min_long)) {
+            return e;
+          }
+        });
+      }
+      if (this.filter.max_long) {
+        result = result.map((e) => {
+          if (e && (e.coords[0] < this.filter.max_long)) {
+            return e;
+          }
+        });
+      }
+    }
+    this.filtered_places = result;
+    this.data.changeFilteredPlaces(this.filtered_places);
+  }
+}
+
  createArr() {
    var arr_places = [];
    var id;
@@ -48,7 +97,6 @@ async ngOnInit() {
    }
    this.arr_places = arr_places;
  }
- */
 
  logout() {
   this.oktaAuth.logout('/');  

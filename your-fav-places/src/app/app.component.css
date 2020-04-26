@@ -11,7 +11,15 @@ app-sidenav.hide {
 app-filter {
     position: fixed;
     top: 64px;
-    width: 100%;
+    right: 0px;
+    left: 15%;
+    width: auto;
     color: black;
     z-index: 3;
+}
+
+@media all and (max-width: 1533px) {
+    app-filter {
+        left: 230px;
+    }
 }

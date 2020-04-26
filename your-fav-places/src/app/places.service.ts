@@ -2,6 +2,14 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import places from "./places";
 
+var filter_init = {
+  author: "All authors",
+  min_lat: 0,
+  max_lat: 0,
+  min_long: 0,
+  max_long: 0,
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -24,6 +32,13 @@ export class PlacesService {
 
   private filterDisplay = new BehaviorSubject(false);          //переключаем отображение фильтра
   currentFilterDisplay = this.filterDisplay.asObservable();
+
+  private filter = new BehaviorSubject(filter_init);         //раздаем настройки фильтра
+  currentFilter = this.filter.asObservable();
+
+  private filteredPlaces = new BehaviorSubject([]);        //раздаем отфильтрованный список мест
+  currentFilteredPlaces = this.filteredPlaces.asObservable();
+
 
   constructor() { }
 
@@ -49,5 +64,14 @@ export class PlacesService {
 
   changeFilterDisplay(filter_display: boolean) {
     this.filterDisplay.next(filter_display);
+  }
+
+  changeFilter(filter) {
+    this.filter.next(filter);
+  }
+
+  changeFilteredPlaces(filtered_places) {
+    this.filteredPlaces.next(filtered_places);
+    console.log(filtered_places);
   }
 }

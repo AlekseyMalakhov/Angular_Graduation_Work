@@ -1,16 +1,21 @@
+/*
 .filter {
     position: relative;
     display: flex;
+    justify-content: flex-end;
     z-index: 3;
 }
+*/
 
+/*
 .pusher {
     width: 15%;
     min-width: 230px;
+    z-index: 0;
 }
+*/
 
 .content {
-    width: 85%;
     background-color: white;
     display: flex;
     flex-wrap: wrap;

@@ -18,7 +18,7 @@ export class UserPlacesPageComponent implements OnInit {
     //var author_id = this.route.snapshot.paramMap.get('author');
     //this.data.currentPlaces.subscribe(places => this.places = places);
     this.data.changeUserPage(true);
-    this.data.currentFilteredPlaces.subscribe(places => this.places = places);
+    this.data.currentSortedPlaces.subscribe(places => this.places = places);
     this.data.currentSearchString.subscribe(search_string => this.search_string = search_string);
     this.data.changeSidenavButton("hide_button");
     //this.getPlaces();

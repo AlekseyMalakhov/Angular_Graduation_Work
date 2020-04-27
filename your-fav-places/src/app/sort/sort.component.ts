@@ -7,7 +7,7 @@ import { PlacesService } from "../places.service";
   styleUrls: ['./sort.component.css']
 })
 export class SortComponent implements OnInit {
-  sort: string;
+  sort: string = "Without sorting";
   places;
   sorted_places = [];
   names = [];
@@ -23,7 +23,7 @@ export class SortComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.sorted_places = [...this.places];
+    //this.sorted_places = [...this.places];
   }
 
   ngDoCheck() {
@@ -36,7 +36,7 @@ export class SortComponent implements OnInit {
       this.createSortedPlaces();
     }
     if (this.sort === "Without sorting") {
-      this.sorted_places = this.places;
+      this.sorted_places = [...this.places];
     }
     this.data.changeSortedPlaces(this.sorted_places);
   }

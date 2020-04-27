@@ -22,12 +22,7 @@
     </ng-container>
     
     <ng-container *ngIf="editPlace">
-        <p>{{user}}</p>
-        <app-edit-place></app-edit-place>
-        <div>
-            <button mat-raised-button color="primary" (click) = "cancelEditPlace()">Save</button>
-            <button mat-raised-button color="warn" (click) = "cancelEditPlace()">Cancel</button>
-        </div>
+        <app-edit-place [user] = "user" [userId] = "userId"></app-edit-place>
     </ng-container>
     
     

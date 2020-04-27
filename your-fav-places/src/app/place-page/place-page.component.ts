@@ -30,10 +30,10 @@ export class PlacePageComponent implements OnInit {
   }
 
   getPlace() {
-    var author_id = this.route.snapshot.paramMap.get('author');
+    //var author_id = this.route.snapshot.paramMap.get('author');
     var id = +this.route.snapshot.paramMap.get('id');
-    var pos = this.places[author_id].findIndex((e) => (e.id === id));
-    this.place = this.places[author_id][pos];
+    var pos = this.places.findIndex((e) => (e.id === id));
+    this.place = this.places[pos];    
   }
 
   back() {

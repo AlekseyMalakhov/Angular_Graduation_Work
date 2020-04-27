@@ -10,6 +10,7 @@ import { PlacesService } from "../places.service";
 export class SidenavComponent implements OnInit {
   @Input() places;
   @Input() user;
+  @Input() userId;
 
   editPlace = false;
   mystyle = {};

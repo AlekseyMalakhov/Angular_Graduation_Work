@@ -14,6 +14,7 @@ export class MainComponent implements OnInit {
   //arr_places;
   sidenav_pos:string;
   user = "";
+  userId = "";
   isAuthenticated: boolean;
   sidenavButtonDisplay;
 
@@ -40,6 +41,7 @@ export class MainComponent implements OnInit {
     if (this.isAuthenticated) {
       const userClaims = await this.oktaAuth.getUser();
       this.user = userClaims.name;
+      this.userId = userClaims.nickname;
     }
     //this.createArr();
   }

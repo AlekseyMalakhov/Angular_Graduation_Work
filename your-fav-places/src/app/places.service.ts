@@ -2,6 +2,22 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import places from "./places";
 
+//переводим places в сплошной массив
+
+function createArr(places) {
+  var arr_places = [];
+  var id;
+  for (id in places) {
+    var place_list = places[id];
+    for (var i = 0; i < place_list.length; i++) {
+      arr_places.push(place_list[i]);
+    }
+  }
+  return arr_places;
+}
+
+var arr_places = createArr(places);
+
 var filter_init = {
   author: "All authors",
   min_lat: 0,
@@ -24,7 +40,7 @@ export class PlacesService {
   private selectedPlace = new BehaviorSubject({});          //объект выбранного места
   currentSelected = this.selectedPlace.asObservable();
 
-  private placesList = new BehaviorSubject(places);       //список мест
+  private placesList = new BehaviorSubject(arr_places);       //список мест
   currentPlaces = this.placesList.asObservable();
 
   private searchString = new BehaviorSubject("");          //переключаем кнопку кнопку сайднав/назад
@@ -38,6 +54,9 @@ export class PlacesService {
 
   private filteredPlaces = new BehaviorSubject([]);        //раздаем отфильтрованный список мест
   currentFilteredPlaces = this.filteredPlaces.asObservable();
+
+  private sortedPlaces = new BehaviorSubject([]);        //раздаем отфильтрованный и отсортированный список мест
+  currentSortedPlaces = this.sortedPlaces.asObservable();
 
   private userPage = new BehaviorSubject(false);             //проверяем если мы на странице пользователя (тогда показываем только его места)
   currentUserPage = this.userPage.asObservable();
@@ -77,8 +96,11 @@ export class PlacesService {
     this.filteredPlaces.next(filtered_places);
   }
 
+  changeSortedPlaces(sorted_places) {
+    this.sortedPlaces.next(sorted_places);
+  }
+
   changeUserPage(user_page: boolean) {
     this.userPage.next(user_page);
-    console.log(user_page);
   }
 }

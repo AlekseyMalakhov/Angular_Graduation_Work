@@ -10,18 +10,20 @@ import { OktaAuthService } from '@okta/okta-angular';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  places;
-  arr_places;
+  //places;
+  //arr_places;
   title = "Your Favorite Places";
   //sidenav_pos:string;
   user = "";
   userId = "";
   user_page: boolean;
   isAuthenticated: boolean;
-
+  
+  /*
   filter;
   filterDisplay: boolean = false;
   filtered_places = [];
+  */
 
   constructor(public oktaAuth: OktaAuthService, private data: PlacesService) {
       this.oktaAuth.$authenticationState.subscribe(isAuthenticated => this.isAuthenticated = isAuthenticated);
@@ -30,11 +32,11 @@ export class AppComponent implements OnInit {
 async ngOnInit() {
   //this.data.currentPosition.subscribe(sidenav_pos => this.sidenav_pos = sidenav_pos);
   this.data.currentUserPage.subscribe(user_page => this.user_page = user_page);
-  this.data.currentPlaces.subscribe(places => this.places = places);
-  this.createArr();
-  this.data.currentFilterDisplay.subscribe(filterDisplay => this.filterDisplay = filterDisplay);
-  this.data.currentFilter.subscribe(filter => this.filter = filter);
-  this.data.currentFilterDisplay.subscribe(filterDisplay => this.filterDisplay = filterDisplay);
+  //this.data.currentPlaces.subscribe(places => this.arr_places = places);
+  //this.createArr();
+  //this.data.currentFilterDisplay.subscribe(filterDisplay => this.filterDisplay = filterDisplay);
+  //this.data.currentFilter.subscribe(filter => this.filter = filter);
+  //this.data.currentFilterDisplay.subscribe(filterDisplay => this.filterDisplay = filterDisplay);
   this.isAuthenticated = await this.oktaAuth.isAuthenticated();
   if (this.isAuthenticated) {
     const userClaims = await this.oktaAuth.getUser();
@@ -43,20 +45,11 @@ async ngOnInit() {
   }  
 }
 
+/*
 ngDoCheck() {
   if (this.arr_places) {
     var result = [...this.arr_places];
     if (this.user_page) {
-      /*
-      var filter_user_page = {
-        author: this.user,
-        min_lat: 0,
-        max_lat: 0,
-        min_long: 0,
-        max_long: 0,
-      };
-      this.data.changeFilter(filter_user_page);
-      */
       result = result.map((e) => {
         if (e && e.author === this.user) {
           return e;
@@ -104,7 +97,9 @@ ngDoCheck() {
     this.data.changeFilteredPlaces(this.filtered_places);
   }
 }
+*/
 
+/*
  createArr() {
    var arr_places = [];
    var id;
@@ -116,6 +111,7 @@ ngDoCheck() {
    }
    this.arr_places = arr_places;
  }
+ */
 
  logout() {
   this.oktaAuth.logout('/');  

@@ -1,7 +1,10 @@
 <app-header [user] = "user" [userId] = "userId" (logout)="logout()"></app-header>
-<ng-container *ngIf="filterDisplay">
-    <app-filter></app-filter>
-</ng-container>
+<!--<ng-container *ngIf="filterDisplay">
+    <app-filter [user] = "user"></app-filter>
+</ng-container>-->
+
+<app-filter [user] = "user"></app-filter>
+
 
 <router-outlet></router-outlet>
 <router-outlet name = "log"></router-outlet> 

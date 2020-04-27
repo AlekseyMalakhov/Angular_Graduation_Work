@@ -43,6 +43,7 @@ import { AllPlacesPageComponent } from './all-places-page/all-places-page.compon
 import { AllPlacesCardComponent } from './all-places-card/all-places-card.component';
 import { UserPlacesPageComponent } from './user-places-page/user-places-page.component';
 import { FilterComponent } from './filter/filter.component';
+import { SortComponent } from './sort/sort.component';
 
 const appRoutes: Routes = [
   {
@@ -98,7 +99,8 @@ const appRoutes: Routes = [
     AllPlacesPageComponent,
     AllPlacesCardComponent,
     UserPlacesPageComponent,
-    FilterComponent
+    FilterComponent,
+    SortComponent
   ],
   imports: [
     BrowserModule,

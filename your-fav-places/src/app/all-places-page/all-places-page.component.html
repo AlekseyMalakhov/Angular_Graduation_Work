@@ -1,5 +1,6 @@
 <div class="container">
     <h2>List of places</h2>
+    <app-sort></app-sort>
     <div *ngFor = "let place of places">
         <ng-container *ngIf="place && search(place.name)">
             <app-all-places-card [place] = "place"></app-all-places-card>

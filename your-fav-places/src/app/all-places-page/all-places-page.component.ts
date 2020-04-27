@@ -17,7 +17,7 @@ export class AllPlacesPageComponent implements OnInit {
     //this.data.currentFilter.subscribe(filter => this.filter = filter);
     //this.filter.author = "All authors";
     //this.data.changeFilter(this.filter);
-    this.data.currentFilteredPlaces.subscribe(places => this.places = places);
+    this.data.currentSortedPlaces.subscribe(places => this.places = places);
     this.data.currentSearchString.subscribe(search_string => this.search_string = search_string);
     this.data.changeSidenavButton("hide_button");
     this.data.changeUserPage(false);

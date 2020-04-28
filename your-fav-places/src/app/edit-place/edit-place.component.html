@@ -8,14 +8,14 @@
     <mat-form-field hintLabel="min 0, max 2400">
         <mat-label>Longitude</mat-label>
         <input type = "number" matInput placeholder="200" pattern="([0-9]|[1-8][0-9]|9[0-9]|[1-8][0-9]{2}|9[0-8][0-9]|99[0-9]|1[0-9]{3}|2[0-3][0-9]{2}|2400)"
-        name = "longitude" [(ngModel)]="new_place.coords[0]">
+        name = "longitude" [(ngModel)]="coords[0]">
         <mat-error>Out of range</mat-error>
     </mat-form-field>
 
     <mat-form-field class = "with_hint" hintLabel="min 0, max 1200">
         <mat-label>Latitude</mat-label>
         <input type = "number" matInput placeholder="500" pattern="([0-9]|[1-8][0-9]|9[0-9]|[1-8][0-9]{2}|9[0-8][0-9]|99[0-9]|1[01][0-9]{2}|1200)"
-        name = "latitude" [(ngModel)]="new_place.coords[1]">
+        name = "latitude" [(ngModel)]="coords[1]">
         <mat-error>Out of range</mat-error>
     </mat-form-field>
 
@@ -33,5 +33,5 @@
 </form>
 <div>
     <button mat-raised-button color="primary" (click) = "savePlace()">Save</button>
-    <button mat-raised-button color="warn" (click) = "cancelEditPlace()">Cancel</button>
+    <button mat-raised-button color="warn" (click) = "cancelEdit()">Cancel</button>
 </div>

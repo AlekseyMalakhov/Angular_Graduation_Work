@@ -12,7 +12,7 @@ export class SidenavComponent implements OnInit {
   @Input() user;
   @Input() userId;
 
-  editPlace = false;
+  editPlace: boolean;
   mystyle = {};
   selected_place;
   search_string: string;
@@ -20,6 +20,7 @@ export class SidenavComponent implements OnInit {
   constructor(private router: Router, private data: PlacesService) {
     this.data.currentSelected.subscribe(selected_place => this.selected_place = selected_place);
     this.data.currentSearchString.subscribe(search_string => this.search_string = search_string);
+    this.data.currentEditPlace.subscribe(editPlace => this.editPlace = editPlace);
   }
 
   ngOnInit(): void {
@@ -27,8 +28,8 @@ export class SidenavComponent implements OnInit {
 
   addPlace() {
     if (this.user) {
-      console.log("add place for " + this.user);
-      this.editPlace = true;
+      //this.editPlace = true;
+      this.data.changeEditPlace(true);
       this.mystyle = {minWidth: "300px"};
     } else {
       this.router.navigate(["/show-login"]);
@@ -45,7 +46,8 @@ export class SidenavComponent implements OnInit {
   }
 
   cancelEditPlace() {
-    this.editPlace = false;
+    //this.editPlace = false;
+    this.data.changeEditPlace(false);
     this.mystyle = {minWidth: ""};
   }
 

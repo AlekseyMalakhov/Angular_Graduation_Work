@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { PlacesService } from "../places.service";
 
 @Component({
   selector: 'app-edit-place',
@@ -8,6 +9,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class EditPlaceComponent implements OnInit {
   @Input() user: string;
   @Input() userId: string;
+
+  @Output() cancel_edit = new EventEmitter<any>();
 
   new_place = {
     id: 1,
@@ -27,23 +30,30 @@ export class EditPlaceComponent implements OnInit {
     "5.jpg",
   ];
 
-  constructor() { }
+  id: number;
+
+  coords = [];
+
+  constructor(private data: PlacesService) {
+    this.data.currentNewPlaceCoords.subscribe(coords => this.coords = coords);
+    this.data.currentNewPlaceId.subscribe(id => this.id = id);
+  }
 
   ngOnInit(): void {
   }
 
-  cancelEditPlace() {
-    /*
-    this.editPlace = false;
-    this.mystyle = {minWidth: ""};
-    */
+  cancelEdit() {
+    this.cancel_edit.emit();
   }
 
   savePlace() {
     this.new_place.author = this.user;
     this.new_place.author_id = this.userId;
+    this.new_place.coords = this.coords;
+    this.new_place.id = this.id;
+    this.id = this.id + 1;
+    this.data.changeNewPlaceId(this.id);
     console.log(this.new_place);
-    console.log(this.user);
   }
 
 }

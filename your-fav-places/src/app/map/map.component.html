@@ -1,4 +1,4 @@
-<div id="map" (click) = "cancelSelection()">
+<div id="map" (click) = "cancelSelection($event)">
     <div id = "background"></div>    
         <div *ngFor = "let place of places">
             <ng-container *ngIf="place">

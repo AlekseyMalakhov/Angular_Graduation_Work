@@ -26,6 +26,8 @@ var filter_init = {
   max_long: 0,
 };
 
+var id_init = 16;         //начальный id
+
 @Injectable({
   providedIn: 'root'
 })
@@ -33,74 +35,81 @@ export class PlacesService {
 
   private sidenavPos = new BehaviorSubject("show");       //скрываем/показываем сайднав
   currentPosition = this.sidenavPos.asObservable();
-
-  private sidenavButton = new BehaviorSubject("show_button");          //переключаем кнопку кнопку сайднав/назад
-  currentSidenavButton = this.sidenavButton.asObservable();
-
-  private selectedPlace = new BehaviorSubject({});          //объект выбранного места
-  currentSelected = this.selectedPlace.asObservable();
-
-  private placesList = new BehaviorSubject(arr_places);       //список мест
-  currentPlaces = this.placesList.asObservable();
-
-  private searchString = new BehaviorSubject("");          //переключаем кнопку кнопку сайднав/назад
-  currentSearchString = this.searchString.asObservable();
-
-  private filterDisplay = new BehaviorSubject(false);          //переключаем отображение фильтра
-  currentFilterDisplay = this.filterDisplay.asObservable();
-
-  private filter = new BehaviorSubject(filter_init);         //раздаем настройки фильтра
-  currentFilter = this.filter.asObservable();
-
-  private filteredPlaces = new BehaviorSubject([]);        //раздаем отфильтрованный список мест
-  currentFilteredPlaces = this.filteredPlaces.asObservable();
-
-  private sortedPlaces = new BehaviorSubject([]);        //раздаем отфильтрованный и отсортированный список мест
-  currentSortedPlaces = this.sortedPlaces.asObservable();
-
-  private userPage = new BehaviorSubject(false);             //проверяем если мы на странице пользователя (тогда показываем только его места)
-  currentUserPage = this.userPage.asObservable();
-
-
-  constructor() { }
-
   changeSidenavPos(position: string) {
     this.sidenavPos.next(position);
   }
 
+  private sidenavButton = new BehaviorSubject("show_button");          //переключаем кнопку кнопку сайднав/назад
+  currentSidenavButton = this.sidenavButton.asObservable();
   changeSidenavButton(display: string) {
     this.sidenavButton.next(display);
   }
 
+  private selectedPlace = new BehaviorSubject({});          //объект выбранного места
+  currentSelected = this.selectedPlace.asObservable();
   changeSelectedPlace(place: object) {
     this.selectedPlace.next(place);
   }
 
+  private placesList = new BehaviorSubject(arr_places);       //список мест
+  currentPlaces = this.placesList.asObservable();
   changePlaces(newPlaces) {
     this.placesList.next(newPlaces);
   }
 
+  private searchString = new BehaviorSubject("");          //переключаем кнопку кнопку сайднав/назад
+  currentSearchString = this.searchString.asObservable();
   changeSearchString(search: string) {
     this.searchString.next(search);
   }
 
+  private filterDisplay = new BehaviorSubject(false);          //переключаем отображение фильтра
+  currentFilterDisplay = this.filterDisplay.asObservable();
   changeFilterDisplay(filter_display: boolean) {
     this.filterDisplay.next(filter_display);
   }
 
+  private filter = new BehaviorSubject(filter_init);         //раздаем настройки фильтра
+  currentFilter = this.filter.asObservable();
   changeFilter(filter) {
     this.filter.next(filter);
   }
 
+  private filteredPlaces = new BehaviorSubject([]);        //раздаем отфильтрованный список мест
+  currentFilteredPlaces = this.filteredPlaces.asObservable();
   changeFilteredPlaces(filtered_places) {
     this.filteredPlaces.next(filtered_places);
   }
 
+  private sortedPlaces = new BehaviorSubject([]);        //раздаем отфильтрованный и отсортированный список мест
+  currentSortedPlaces = this.sortedPlaces.asObservable();
   changeSortedPlaces(sorted_places) {
     this.sortedPlaces.next(sorted_places);
   }
 
+  private userPage = new BehaviorSubject(false);             //проверяем если мы на странице пользователя (тогда показываем только его места)
+  currentUserPage = this.userPage.asObservable();
   changeUserPage(user_page: boolean) {
     this.userPage.next(user_page);
   }
+
+  private editPlace = new BehaviorSubject(false);             //режим редактирования места
+  currentEditPlace = this.editPlace.asObservable();
+  changeEditPlace(edit_place: boolean) {
+    this.editPlace.next(edit_place);
+  }
+
+  private newPlaceCoords = new BehaviorSubject([]);             //раздаем координаты добавленного места
+  currentNewPlaceCoords = this.newPlaceCoords.asObservable();
+  changeNewPlaceCoords(coords: number[]) {
+    this.newPlaceCoords.next(coords);
+  }
+
+  private newPlaceId = new BehaviorSubject(id_init);             //раздаем id добавленного места
+  currentNewPlaceId = this.newPlaceId.asObservable();
+  changeNewPlaceId(id: number) {
+    this.newPlaceId.next(id);
+    console.log(id);
+  }
+
 }

@@ -16,3 +16,10 @@
 	background-image: url("/assets/pics/map.jpg"), url("/assets/pics/rep_map.jpg");
 	background-repeat: no-repeat, repeat;
 }
+
+.new_place {
+    position: absolute;
+    z-index: 2;
+    height: 40px;
+    padding: 20px 20px;
+}

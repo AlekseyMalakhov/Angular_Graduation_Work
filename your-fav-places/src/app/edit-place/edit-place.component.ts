@@ -9,7 +9,7 @@ import { PlacesService } from "../places.service";
 export class EditPlaceComponent implements OnInit {
   @Input() user: string;
   @Input() userId: string;
-
+  places;
   @Output() cancel_edit = new EventEmitter<any>();
 
   new_place = {
@@ -37,6 +37,7 @@ export class EditPlaceComponent implements OnInit {
   constructor(private data: PlacesService) {
     this.data.currentNewPlaceCoords.subscribe(coords => this.coords = coords);
     this.data.currentNewPlaceId.subscribe(id => this.id = id);
+    this.data.currentPlaces.subscribe(places => this.places = places);
   }
 
   ngOnInit(): void {
@@ -53,7 +54,12 @@ export class EditPlaceComponent implements OnInit {
     this.new_place.id = this.id;
     this.id = this.id + 1;
     this.data.changeNewPlaceId(this.id);
-    console.log(this.new_place);
+    var adding_place = {...this.new_place};
+    var new_list = [...this.places];
+    new_list.push(adding_place);
+    this.data.changePlaces(new_list);
+    this.data.changePlaceSaved(true);
+    console.log(this.places);
   }
 
 }

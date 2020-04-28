@@ -109,7 +109,13 @@ export class PlacesService {
   currentNewPlaceId = this.newPlaceId.asObservable();
   changeNewPlaceId(id: number) {
     this.newPlaceId.next(id);
-    console.log(id);
+  }
+
+  private placeSaved = new BehaviorSubject(false);             //раздаем событие что место сохранено
+  currentPlaceSaved = this.placeSaved.asObservable();
+  changePlaceSaved(pl: boolean) {
+    this.placeSaved.next(pl);
+    console.log(pl);
   }
 
 }

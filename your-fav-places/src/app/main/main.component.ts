@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { PlacesService } from "../places.service";
-import { OktaAuthService } from '@okta/okta-angular';
+//import { OktaAuthService } from '@okta/okta-angular';
 //import places from "../places";
 
 @Component({
@@ -13,10 +13,11 @@ export class MainComponent implements OnInit {
   places;
   //arr_places;
   sidenav_pos:string;
-  user = "";
-  userId = "";
-  isAuthenticated: boolean;
+  //user = "";
+  //userId = "";
+  //isAuthenticated: boolean;
   sidenavButtonDisplay;
+  user_obj;
 
   /*
   filter;
@@ -24,25 +25,28 @@ export class MainComponent implements OnInit {
   filtered_places = [];
   */
 
-  constructor(private router: Router, private data: PlacesService, public oktaAuth: OktaAuthService) {
-      this.oktaAuth.$authenticationState.subscribe(isAuthenticated => this.isAuthenticated = isAuthenticated);
+  constructor(private router: Router, private data: PlacesService) {
+      //this.oktaAuth.$authenticationState.subscribe(isAuthenticated => this.isAuthenticated = isAuthenticated);
   }
 
-  async ngOnInit() {
+  ngOnInit() {
     this.data.changeUserPage(false);
     this.data.currentPosition.subscribe(sidenav_pos => this.sidenav_pos = sidenav_pos);
+    this.data.currentUser.subscribe(user_obj => this.user_obj = user_obj);
     //this.data.currentPlaces.subscribe(places => this.places = places);
     this.data.currentFilteredPlaces.subscribe(places => this.places = places);
     this.data.currentSidenavButton.subscribe(sidenavButtonDisplay => this.sidenavButtonDisplay = sidenavButtonDisplay);
     //this.data.currentFilter.subscribe(filter => this.filter = filter);
     //this.data.currentFilterDisplay.subscribe(filterDisplay => this.filterDisplay = filterDisplay);
     this.data.changeSidenavButton("show_button");
+    /*
     this.isAuthenticated = await this.oktaAuth.isAuthenticated();
     if (this.isAuthenticated) {
       const userClaims = await this.oktaAuth.getUser();
       this.user = userClaims.name;
       this.userId = userClaims.nickname;
     }
+    */
     //this.createArr();
   }
 

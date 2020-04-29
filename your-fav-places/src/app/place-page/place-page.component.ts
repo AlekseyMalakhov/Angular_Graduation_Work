@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PlacesService } from "../places.service";
-import { OktaAuthService } from '@okta/okta-angular';
+//import { OktaAuthService } from '@okta/okta-angular';
 
 @Component({
   selector: 'app-place-page',
@@ -11,22 +11,26 @@ import { OktaAuthService } from '@okta/okta-angular';
 export class PlacePageComponent implements OnInit {
   places;
   place;
-  user = "";
-  isAuthenticated: boolean;
+  //user = "";
+  //isAuthenticated: boolean;
   sidenavButtonDisplay;
+  user_obj;
 
-  constructor(private route: ActivatedRoute, private data: PlacesService, public oktaAuth: OktaAuthService) { }
+  constructor(private route: ActivatedRoute, private data: PlacesService) { }
 
-  async ngOnInit() {
+  ngOnInit() {
     this.data.currentPlaces.subscribe(places => this.places = places);
+    this.data.currentUser.subscribe(user_obj => this.user_obj = user_obj);
     //this.data.currentSidenavButton.subscribe(sidenavButtonDisplay => this.sidenavButtonDisplay = sidenavButtonDisplay);
     this.data.changeSidenavButton("hide_button");
     this.getPlace();
+    /*
     this.isAuthenticated = await this.oktaAuth.isAuthenticated();
     if (this.isAuthenticated) {
       const userClaims = await this.oktaAuth.getUser();
       this.user = userClaims.name;
     }
+    */
   }
 
   getPlace() {

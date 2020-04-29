@@ -42,6 +42,8 @@ async ngOnInit() {
     const userClaims = await this.oktaAuth.getUser();
     this.user = userClaims.name;
     this.userId = userClaims.nickname;
+    this.data.changeUser({user: this.user, 
+                          userId: this.userId});
   }  
 }
 

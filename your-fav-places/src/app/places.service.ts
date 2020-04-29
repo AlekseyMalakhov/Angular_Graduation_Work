@@ -26,12 +26,19 @@ var filter_init = {
   max_long: 0,
 };
 
-var id_init = 16;         //начальный id
+var id_init = 51;         //начальный id
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlacesService {
+
+  private user = new BehaviorSubject({});          //раздаем имя пользователя
+  currentUser= this.user.asObservable();
+  changeUser(user_obj: object) {
+    this.user.next(user_obj);
+    console.log(user_obj);
+  }
 
   private sidenavPos = new BehaviorSubject("show");       //скрываем/показываем сайднав
   currentPosition = this.sidenavPos.asObservable();

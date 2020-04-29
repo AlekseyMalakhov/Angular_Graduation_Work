@@ -13,5 +13,4 @@ export class AllPlacesCardComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

@@ -20,7 +20,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
-import {MatFormFieldModule} from '@angular/material/form-field'; 
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDividerModule} from '@angular/material/divider';  
 import { PlaceComponent } from './place/place.component';
 import { PointComponent } from './point/point.component';
 import { PointCardComponent } from './point-card/point-card.component';
@@ -44,6 +45,7 @@ import { AllPlacesCardComponent } from './all-places-card/all-places-card.compon
 import { UserPlacesPageComponent } from './user-places-page/user-places-page.component';
 import { FilterComponent } from './filter/filter.component';
 import { SortComponent } from './sort/sort.component';
+import { DeleteButtonComponent } from './delete-button/delete-button.component';
 
 const appRoutes: Routes = [
   {
@@ -100,7 +102,8 @@ const appRoutes: Routes = [
     AllPlacesCardComponent,
     UserPlacesPageComponent,
     FilterComponent,
-    SortComponent
+    SortComponent,
+    DeleteButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -115,6 +118,7 @@ const appRoutes: Routes = [
     MatTooltipModule,
     MatSelectModule,
     MatFormFieldModule,
+    MatDividerModule,
   ],
   providers: [
     { provide: OKTA_CONFIG, useValue: oktaConfig },

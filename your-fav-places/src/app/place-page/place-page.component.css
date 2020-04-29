@@ -29,3 +29,7 @@ button {
 .back {
     margin-top: 0px;
 }
+
+mat-divider {
+    width: 100%;
+}

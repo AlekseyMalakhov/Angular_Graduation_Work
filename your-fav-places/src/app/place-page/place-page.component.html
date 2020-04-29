@@ -11,14 +11,15 @@
     <div class="content">
         <h2>{{place.name}}</h2>
         <h4 class="author">{{place.author}}</h4>
-        <p class="location">Location coordinates: {{place.coords}}<p>
+        <p class="location">Location coordinates: {{place.coords[0] + ", " + place.coords[1]}}<p>
         <img src="/assets/pics/places/{{place.img}}" alt="{{place.name}} picture">
         <p>{{place.description}}</p>
     </div>
+    <mat-divider></mat-divider>
     
-    <div class = "actions" *ngIf = "place.author === user">
-        <button mat-raised-button>Edit</button>
-        <button mat-raised-button>Delete</button>
+    <div class = "actions" *ngIf = "place.author === user_obj.user">
+        <button mat-button>Edit</button>
+        <app-delete-button></app-delete-button>
     </div>
 
 </div>

@@ -1,1 +1,13 @@
-<button mat-button (click) = "deletePlace()">Delete</button>
+<div *ngIf="!request">
+    <button mat-button (click) = "askToDelete()">Delete</button>
+</div>
+<div class = "request" *ngIf="request">
+    <div>
+        <p>Do you want to delete {{del_place_name}}?</p>
+    </div>    
+    <div class="action-buttons">
+        <button mat-raised-button color="warn" (click) = "deletePlace()">Yes</button>
+        <button mat-raised-button color="primary" (click) = "cancel()">No</button>
+    </div>    
+</div>
+

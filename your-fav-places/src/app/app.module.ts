@@ -37,7 +37,7 @@ const oktaConfig = Object.assign({
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { EditPlaceComponent } from './edit-place/edit-place.component';
+import { AddPlaceComponent } from './add-place/add-place.component';
 import { PlacePageComponent } from './place-page/place-page.component';
 import { MainComponent } from './main/main.component';
 import { AllPlacesPageComponent } from './all-places-page/all-places-page.component';
@@ -95,7 +95,7 @@ const appRoutes: Routes = [
     PlaceComponent,
     PointComponent,
     PointCardComponent,
-    EditPlaceComponent,
+    AddPlaceComponent,
     PlacePageComponent,
     MainComponent,
     AllPlacesPageComponent,

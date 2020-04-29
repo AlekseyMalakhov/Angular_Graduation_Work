@@ -33,3 +33,11 @@ button {
 mat-divider {
     width: 100%;
 }
+
+.actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin: 0px 15px;
+}

@@ -15,11 +15,10 @@
         <img src="/assets/pics/places/{{place.img}}" alt="{{place.name}} picture">
         <p>{{place.description}}</p>
     </div>
-    <mat-divider></mat-divider>
-    
-    <div class = "actions" *ngIf = "place.author === user_obj.user">
-        <button mat-button>Edit</button>
-        <app-delete-button [del_place_id] = "place.id"></app-delete-button>
-    </div>
+    <mat-divider></mat-divider>   
 
+</div>
+<div class = "actions" *ngIf = "place.author === user_obj.user">
+    <button mat-button>Edit</button>
+    <app-delete-button [del_place_id] = "place.id" [del_place_name] = "place.name"></app-delete-button>
 </div>

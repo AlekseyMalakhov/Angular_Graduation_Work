@@ -13,9 +13,16 @@ img {
 
 mat-card-actions {
     margin-left: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .location {
     color: black;
     margin-bottom: 5px;
+}
+
+app-delete-button {
+    font-size: 14px;
 }

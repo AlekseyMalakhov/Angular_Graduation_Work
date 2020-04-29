@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditPlaceComponent } from './edit-place.component';
+import { AddPlaceComponent } from './add-place.component';
 
 describe('EditPlaceComponent', () => {
-  let component: EditPlaceComponent;
-  let fixture: ComponentFixture<EditPlaceComponent>;
+  let component: AddPlaceComponent;
+  let fixture: ComponentFixture<AddPlaceComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditPlaceComponent ]
+      declarations: [ AddPlaceComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EditPlaceComponent);
+    fixture = TestBed.createComponent(AddPlaceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

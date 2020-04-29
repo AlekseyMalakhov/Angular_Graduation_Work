@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
       },
     );
     this.signIn.show();
-    console.log(this.signIn);
+    //console.log(this.signIn);
   }
 
 }

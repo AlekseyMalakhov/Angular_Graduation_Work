@@ -8,7 +8,9 @@ import { PlacesService } from "../places.service";
 })
 export class DeleteButtonComponent implements OnInit {
   @Input() del_place_id;
+  @Input() del_place_name;
   places;
+  request = false;
 
   constructor(private data: PlacesService) {
     this.data.currentPlaces.subscribe(places => this.places = places);
@@ -17,7 +19,19 @@ export class DeleteButtonComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  deletePlace() {    
+  askToDelete() {
+    this.request = true; 
+  }
+
+  cancel() {
+    this.request = false; 
+  }
+
+  back() {
+    window.history.back();
+  }
+
+  deletePlace() {
     var new_list = [...this.places];
     var pos = new_list.findIndex((e) => (e.id === this.del_place_id));
     console.log("pos = " + pos);
@@ -25,10 +39,12 @@ export class DeleteButtonComponent implements OnInit {
     if (pos !== -1) {
       new_list.splice(pos, 1);
       this.data.changePlaces(new_list);
-      console.log(new_list); 
+      console.log(new_list);
     } else {
       console.log("no such position");
     }
+    this.request = false;
+    this.back();
   }
 
 

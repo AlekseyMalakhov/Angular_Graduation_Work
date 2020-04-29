@@ -2,11 +2,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { PlacesService } from "../places.service";
 
 @Component({
-  selector: 'app-edit-place',
-  templateUrl: './edit-place.component.html',
-  styleUrls: ['./edit-place.component.css']
+  selector: 'app-add-place',
+  templateUrl: './add-place.component.html',
+  styleUrls: ['./add-place.component.css']
 })
-export class EditPlaceComponent implements OnInit {
+export class AddPlaceComponent implements OnInit {
   @Input() user: string;
   @Input() userId: string;
   places;

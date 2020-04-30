@@ -133,6 +133,7 @@ export class PlacesService {
   currentPlaceSaved = this.placeSaved.asObservable();
   changePlaceSaved(pl: boolean) {
     this.placeSaved.next(pl);
+    console.log(pl);
   }
 
   private placeToEdit = new BehaviorSubject({});             //раздаем редактируемое место

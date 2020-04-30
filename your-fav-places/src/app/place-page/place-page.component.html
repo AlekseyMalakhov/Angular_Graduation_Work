@@ -19,6 +19,6 @@
 
 </div>
 <div class = "actions" *ngIf = "place.author === user_obj.user">
-    <button mat-button>Edit</button>
+    <button mat-button (click) = "edit()">Edit</button>
     <app-delete-button [del_place_id] = "place.id" [del_place_name] = "place.name" [back_after_del] = "true"></app-delete-button>
 </div>

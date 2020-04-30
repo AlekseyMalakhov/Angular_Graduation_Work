@@ -55,7 +55,11 @@ export class SidenavComponent implements OnInit {
 
   cancelEditPlace() {
     //this.editPlace = false;
+    //возвращаем все переменные в исходные состояния
     this.data.changeEditPlace(false);
+    this.data.changePlaceSaved(false);
+    this.data.changePlaceToEdit({});
+    this.data.changeNewPlaceCoords([700, 300]);
     this.mystyle = {minWidth: ""};
   }
 

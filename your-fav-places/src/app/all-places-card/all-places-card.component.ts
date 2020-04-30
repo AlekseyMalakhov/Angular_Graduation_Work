@@ -17,7 +17,7 @@ export class AllPlacesCardComponent implements OnInit {
   }
 
   edit() {
-    console.log("edit");
+    //console.log("edit");
     this.router.navigate(["/"]);
     this.data.changeEditPlace(true);
     this.data.changeNewPlaceCoords(this.place.coords);

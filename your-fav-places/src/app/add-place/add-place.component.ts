@@ -47,7 +47,13 @@ export class AddPlaceComponent implements OnInit {
   ngOnChanges() {
     console.log("нам прилетело место на изменение");
     console.log(this.place_to_edit);
-    this.new_place = {...this.place_to_edit};
+    if (this.place_to_edit.id) {
+      //если прилетело настоящее место для редактирования - берем его
+      this.new_place = {...this.place_to_edit};
+    } else {
+      //если пустой объект - значит будем добавлять новое место
+    }
+    
   }
 
   cancelEdit() {
@@ -56,7 +62,7 @@ export class AddPlaceComponent implements OnInit {
 
   savePlace() {
     //если сохраняем новое место
-    if (!this.place_to_edit) {
+    if (!this.place_to_edit.id) {
       this.new_place.author = this.user;
       this.new_place.author_id = this.userId;
       this.new_place.coords = this.coords;

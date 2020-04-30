@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PlacesService } from "../places.service";
-//import { OktaAuthService } from '@okta/okta-angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-place-page',
@@ -11,30 +11,19 @@ import { PlacesService } from "../places.service";
 export class PlacePageComponent implements OnInit {
   places;
   place;
-  //user = "";
-  //isAuthenticated: boolean;
   sidenavButtonDisplay;
   user_obj;
 
-  constructor(private route: ActivatedRoute, private data: PlacesService) { }
+  constructor(private route: ActivatedRoute, private data: PlacesService, private router: Router) { }
 
   ngOnInit() {
     this.data.currentPlaces.subscribe(places => this.places = places);
     this.data.currentUser.subscribe(user_obj => this.user_obj = user_obj);
-    //this.data.currentSidenavButton.subscribe(sidenavButtonDisplay => this.sidenavButtonDisplay = sidenavButtonDisplay);
     this.data.changeSidenavButton("hide_button");
     this.getPlace();
-    /*
-    this.isAuthenticated = await this.oktaAuth.isAuthenticated();
-    if (this.isAuthenticated) {
-      const userClaims = await this.oktaAuth.getUser();
-      this.user = userClaims.name;
-    }
-    */
   }
 
   getPlace() {
-    //var author_id = this.route.snapshot.paramMap.get('author');
     var id = +this.route.snapshot.paramMap.get('id');
     var pos = this.places.findIndex((e) => (e.id === id));
     this.place = this.places[pos];    
@@ -42,6 +31,14 @@ export class PlacePageComponent implements OnInit {
 
   back() {
     window.history.back();
+  }
+
+  edit() {
+    //console.log("edit");
+    this.router.navigate(["/"]);
+    this.data.changeEditPlace(true);
+    this.data.changeNewPlaceCoords(this.place.coords);
+    this.data.changePlaceToEdit(this.place);
   }
 
 }

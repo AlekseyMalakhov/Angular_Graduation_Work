@@ -72,6 +72,7 @@ export class PlacesService {
   currentPlaces = this.placesList.asObservable();
   changePlaces(newPlaces) {
     this.placesList.next(newPlaces);
+    console.log(newPlaces);
   }
 
   private searchString = new BehaviorSubject("");          //переключаем кнопку кнопку сайднав/назад

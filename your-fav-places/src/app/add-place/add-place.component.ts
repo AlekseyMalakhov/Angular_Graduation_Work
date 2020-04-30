@@ -68,10 +68,17 @@ export class AddPlaceComponent implements OnInit {
       new_list.push(adding_place);
       this.data.changePlaces(new_list);
       this.data.changePlaceSaved(true);
-      console.log(this.places);
+      //console.log(this.places);
     } else {
-      console.log("мы тут редактируем старое. У нас вон тут какое место");
-      console.log(this.place_to_edit);
+      //если редактируем старое
+      this.new_place.coords = this.coords;
+      var editing_place = {...this.new_place};
+      var new_list = [...this.places];
+      var pos = new_list.findIndex((e) => (e.id === editing_place.id));
+      new_list[pos] = editing_place;
+      this.data.changePlaces(new_list);
+      this.data.changePlaceSaved(true);
+      //console.log(new_list);
     }
     
   }

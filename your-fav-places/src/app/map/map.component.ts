@@ -12,7 +12,7 @@ export class MapComponent implements OnInit {
   @Input() user;
   selected_place;
   editPlace: boolean;
-  coords = [];
+  coords = [700, 300];
   placeSaved: boolean;
 
   /*
@@ -25,6 +25,7 @@ export class MapComponent implements OnInit {
     this.data.currentSelected.subscribe(selected_place => this.selected_place = selected_place);
     this.data.currentEditPlace.subscribe(editPlace => this.editPlace = editPlace);
     this.data.currentPlaceSaved.subscribe(placeSaved => this.placeSaved = placeSaved);
+    this.data.currentNewPlaceCoords.subscribe(coords => this.coords = coords);
     //this.data.currentFilter.subscribe(filter => this.filter = filter);
     //this.data.currentFilterDisplay.subscribe(filterDisplay => this.filterDisplay = filterDisplay);
   }

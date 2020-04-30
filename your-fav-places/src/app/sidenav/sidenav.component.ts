@@ -16,21 +16,29 @@ export class SidenavComponent implements OnInit {
   mystyle = {};
   selected_place;
   search_string: string;
+  place_to_edit = {};
 
   constructor(private router: Router, private data: PlacesService) {
     this.data.currentSelected.subscribe(selected_place => this.selected_place = selected_place);
     this.data.currentSearchString.subscribe(search_string => this.search_string = search_string);
     this.data.currentEditPlace.subscribe(editPlace => this.editPlace = editPlace);
+    this.data.currentPlaceToEdit.subscribe(place_to_edit => this.place_to_edit = place_to_edit);
   }
 
   ngOnInit(): void {
+  }
+
+  ngDoCheck() {
+    if (this.editPlace) {
+      this.mystyle = {minWidth: "300px"};
+    }
   }
 
   addPlace() {
     if (this.user) {
       //this.editPlace = true;
       this.data.changeEditPlace(true);
-      this.mystyle = {minWidth: "300px"};
+      //this.mystyle = {minWidth: "300px"};
     } else {
       this.router.navigate(["/show-login"]);
     }    

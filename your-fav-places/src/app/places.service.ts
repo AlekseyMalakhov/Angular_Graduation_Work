@@ -27,6 +27,17 @@ var filter_init = {
 };
 
 var id_init = 51;         //начальный id
+/*
+interface Placeable { 
+  id: number; 
+  name: string; 
+  author: string; 
+  author_id: string; 
+  img: string; 
+  description: string; 
+  coords: number[]; 
+};
+*/
 
 @Injectable({
   providedIn: 'root'
@@ -37,7 +48,6 @@ export class PlacesService {
   currentUser= this.user.asObservable();
   changeUser(user_obj: object) {
     this.user.next(user_obj);
-    console.log(user_obj);
   }
 
   private sidenavPos = new BehaviorSubject("show");       //скрываем/показываем сайднав
@@ -106,7 +116,7 @@ export class PlacesService {
     this.editPlace.next(edit_place);
   }
 
-  private newPlaceCoords = new BehaviorSubject([]);             //раздаем координаты добавленного места
+  private newPlaceCoords = new BehaviorSubject([700, 300]);             //раздаем координаты добавленного места
   currentNewPlaceCoords = this.newPlaceCoords.asObservable();
   changeNewPlaceCoords(coords: number[]) {
     this.newPlaceCoords.next(coords);
@@ -122,7 +132,12 @@ export class PlacesService {
   currentPlaceSaved = this.placeSaved.asObservable();
   changePlaceSaved(pl: boolean) {
     this.placeSaved.next(pl);
-    console.log(pl);
+  }
+
+  private placeToEdit = new BehaviorSubject({});             //раздаем редактируемое место
+  currentPlaceToEdit = this.placeToEdit.asObservable();
+  changePlaceToEdit(pl) {
+    this.placeToEdit.next(pl);
   }
 
 }

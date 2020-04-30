@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { PlacesService } from "../places.service";
 
 @Component({
   selector: 'app-all-places-card',
@@ -9,8 +11,16 @@ export class AllPlacesCardComponent implements OnInit {
   @Input() place;
   @Input() userpage;
 
-  constructor() { }
+  constructor(private router: Router, private data: PlacesService) { }
 
   ngOnInit(): void {
+  }
+
+  edit() {
+    console.log("edit");
+    this.router.navigate(["/"]);
+    this.data.changeEditPlace(true);
+    this.data.changeNewPlaceCoords(this.place.coords);
+    this.data.changePlaceToEdit(this.place);
   }
 }

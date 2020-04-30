@@ -9,6 +9,7 @@ import { PlacesService } from "../places.service";
 export class DeleteButtonComponent implements OnInit {
   @Input() del_place_id;
   @Input() del_place_name;
+  @Input() back_after_del;
   places;
   request = false;
 
@@ -44,7 +45,9 @@ export class DeleteButtonComponent implements OnInit {
       console.log("no such position");
     }
     this.request = false;
-    this.back();
+    if (this.back_after_del) {
+      this.back();
+    }    
   }
 
 

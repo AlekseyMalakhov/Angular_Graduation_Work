@@ -22,7 +22,7 @@
     </ng-container>
     
     <ng-container *ngIf="editPlace">
-        <app-add-place [user] = "user" [userId] = "userId" (cancel_edit) = "cancelEditPlace()"></app-add-place>
+        <app-add-place [user] = "user" [userId] = "userId" (cancel_edit) = "cancelEditPlace()" [place_to_edit] = "place_to_edit"></app-add-place>
     </ng-container>
     
     

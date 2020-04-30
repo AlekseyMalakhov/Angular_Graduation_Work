@@ -9,6 +9,7 @@ import { PlacesService } from "../places.service";
 export class AddPlaceComponent implements OnInit {
   @Input() user: string;
   @Input() userId: string;
+  @Input() place_to_edit;
   places;
   @Output() cancel_edit = new EventEmitter<any>();
 
@@ -19,7 +20,7 @@ export class AddPlaceComponent implements OnInit {
     author_id: "stipe_miocic",
     img: '1.jpg',
     description: "",
-    coords: [0, 0],
+    coords: [700, 300],
   };  
 
   listOfImg = [
@@ -32,7 +33,7 @@ export class AddPlaceComponent implements OnInit {
 
   id: number;
 
-  coords = [];
+  coords = [700, 300];
 
   constructor(private data: PlacesService) {
     this.data.currentNewPlaceCoords.subscribe(coords => this.coords = coords);
@@ -43,23 +44,36 @@ export class AddPlaceComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ngOnChanges() {
+    console.log("нам прилетело место на изменение");
+    console.log(this.place_to_edit);
+    this.new_place = {...this.place_to_edit};
+  }
+
   cancelEdit() {
     this.cancel_edit.emit();
   }
 
   savePlace() {
-    this.new_place.author = this.user;
-    this.new_place.author_id = this.userId;
-    this.new_place.coords = this.coords;
-    this.new_place.id = this.id;
-    this.id = this.id + 1;
-    this.data.changeNewPlaceId(this.id);
-    var adding_place = {...this.new_place};
-    var new_list = [...this.places];
-    new_list.push(adding_place);
-    this.data.changePlaces(new_list);
-    this.data.changePlaceSaved(true);
-    console.log(this.places);
+    //если сохраняем новое место
+    if (!this.place_to_edit) {
+      this.new_place.author = this.user;
+      this.new_place.author_id = this.userId;
+      this.new_place.coords = this.coords;
+      this.new_place.id = this.id;
+      this.id = this.id + 1;
+      this.data.changeNewPlaceId(this.id);
+      var adding_place = {...this.new_place};
+      var new_list = [...this.places];
+      new_list.push(adding_place);
+      this.data.changePlaces(new_list);
+      this.data.changePlaceSaved(true);
+      console.log(this.places);
+    } else {
+      console.log("мы тут редактируем старое. У нас вон тут какое место");
+      console.log(this.place_to_edit);
+    }
+    
   }
 
 }

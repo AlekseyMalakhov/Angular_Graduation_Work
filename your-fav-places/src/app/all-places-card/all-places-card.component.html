@@ -10,7 +10,7 @@
     </mat-card-content>
     <mat-card-actions>
         <a mat-button routerLink="/place-page/{{place.author_id}}/{{place.id}}" routerLinkActive="active">Read more</a>
-        <button mat-button *ngIf = "userpage">Edit</button>
-        <app-delete-button *ngIf = "userpage" [del_place_id] = "place.id" [del_place_name] = "place.name"></app-delete-button>
+        <button mat-button *ngIf = "userpage" (click) = "edit()">Edit</button>
+        <app-delete-button *ngIf = "userpage" [del_place_id] = "place.id" [del_place_name] = "place.name" [back_after_del] = "false"></app-delete-button>
     </mat-card-actions>
 </mat-card>

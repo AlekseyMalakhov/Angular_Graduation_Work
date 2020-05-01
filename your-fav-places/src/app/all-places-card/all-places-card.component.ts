@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
+//import { Router } from '@angular/router';
 import { PlacesService } from "../places.service";
 
 @Component({
@@ -11,10 +11,12 @@ export class AllPlacesCardComponent implements OnInit {
   @Input() place;
   @Input() userpage;
 
-  constructor(private router: Router, private data: PlacesService) { }
+  constructor(private data: PlacesService) { }
 
   ngOnInit(): void {
   }
+
+  /*
 
   edit() {
     //console.log("edit");
@@ -23,4 +25,5 @@ export class AllPlacesCardComponent implements OnInit {
     this.data.changeNewPlaceCoords(this.place.coords);
     this.data.changePlaceToEdit(this.place);
   }
+  */
 }

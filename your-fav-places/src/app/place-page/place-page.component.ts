@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PlacesService } from "../places.service";
-import { Router } from '@angular/router';
+//import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-place-page',
@@ -14,7 +14,7 @@ export class PlacePageComponent implements OnInit {
   sidenavButtonDisplay;
   user_obj;
 
-  constructor(private route: ActivatedRoute, private data: PlacesService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private data: PlacesService) { }
 
   ngOnInit() {
     this.data.currentPlaces.subscribe(places => this.places = places);
@@ -33,6 +33,8 @@ export class PlacePageComponent implements OnInit {
     window.history.back();
   }
 
+  /*
+
   edit() {
     //console.log("edit");
     this.router.navigate(["/"]);
@@ -40,5 +42,6 @@ export class PlacePageComponent implements OnInit {
     this.data.changeNewPlaceCoords(this.place.coords);
     this.data.changePlaceToEdit(this.place);
   }
+  */
 
 }

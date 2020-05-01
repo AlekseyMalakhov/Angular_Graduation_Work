@@ -23,6 +23,8 @@ export class PlaceComponent implements OnInit {
     this.data.changeSelectedPlace(this.place);
   }
 
+  /*
+
   edit() {
     console.log("edit");
     //this.router.navigate(["/"]);
@@ -30,4 +32,5 @@ export class PlaceComponent implements OnInit {
     this.data.changeNewPlaceCoords(this.place.coords);
     this.data.changePlaceToEdit(this.place);
   }
+  */
 }

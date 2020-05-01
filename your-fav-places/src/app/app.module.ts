@@ -46,6 +46,7 @@ import { UserPlacesPageComponent } from './user-places-page/user-places-page.com
 import { FilterComponent } from './filter/filter.component';
 import { SortComponent } from './sort/sort.component';
 import { DeleteButtonComponent } from './delete-button/delete-button.component';
+import { EditButtonComponent } from './edit-button/edit-button.component';
 
 const appRoutes: Routes = [
   {
@@ -103,7 +104,8 @@ const appRoutes: Routes = [
     UserPlacesPageComponent,
     FilterComponent,
     SortComponent,
-    DeleteButtonComponent
+    DeleteButtonComponent,
+    EditButtonComponent
   ],
   imports: [
     BrowserModule,

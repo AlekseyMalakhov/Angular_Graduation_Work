@@ -1,5 +1,5 @@
 <div id="header">    
-    <div class = "content-left">
+    <div class = "content-left">        
         <button mat-icon-button (click)="toggleSidenav()" *ngIf="sidenavButtonDisplay === 'show_button'">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="36px" height="36px">
                 <path d="M0 0h24v24H0z" fill="none"/>
@@ -12,12 +12,22 @@
                 <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
             </svg>   
         </button>
-        <!--<span class = "push" routerLink="/" routerLinkActive="active" matTooltip="Home">Your Favorite Places</span>-->
-        <button class = "title" mat-button routerLink="/" routerLinkActive="active" matTooltip="Home">Your Favorite Places</button> 
+
+        <!--для десктопа-->
+        <button class = "title" mat-button routerLink="/" routerLinkActive="active" matTooltip="Home">Your Favorite Places</button>
+
+        <!--для мобильных устройств-->
+        <button class = "title_mobile" mat-button routerLink="/" routerLinkActive="active" matTooltip="Home" *ngIf="!searchbox">Your Favorite Places</button>
+        <button class = "home_button" mat-icon-button routerLink="/" routerLinkActive="active" matTooltip="Home" *ngIf="searchbox">
+            <svg xmlns="http://www.w3.org/2000/svg" height="36" viewBox="0 0 24 24" width="36">
+                <path fill="white" d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                <path d="M0 0h24v24H0z" fill="none"/>
+            </svg>  
+        </button>
     </div>
 
     
-    <div class = "content-right">
+    <div class = "content-right">        
         <button mat-icon-button (click)="toggleFilter()" matTooltip="Filter">
             <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="white">
                 <path d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"/>
@@ -29,10 +39,12 @@
                 <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
                 <path d="M0 0h24v24H0z" fill="none"/>
             </svg>       
-        </button>
+        </button>        
         <input type="text" *ngIf="searchbox" (keyup) = "search($event)" placeholder="Name of the place">
-        <button mat-button routerLink="/all-places-page" routerLinkActive="active" matTooltip="List of places">All Places</button>       
-        
+
+        <!--для десктопа-->
+        <button class="all_places" mat-button routerLink="/all-places-page" routerLinkActive="active" matTooltip="List of places">All Places</button>
+              
         <div class="auth_buttons" *ngIf="!user">
             <button mat-stroked-button id="login" routerLink="/show-login" routerLinkActive="active">Login</button>
             <button mat-stroked-button id="signIn" matTooltip="Doesn't work yet:(">Sign In</button>
@@ -41,6 +53,29 @@
         <div class="auth_buttons" *ngIf="user">            
             <button mat-button routerLink="/user-places-page/{{userId}}" routerLinkActive="active" matTooltip="My places">{{user}}</button>
             <button mat-stroked-button id="logOut" (click)="logout()">Log Out</button>
-        </div> 
+        </div>     
+    </div>
+    
+    <!--для мобильных устройств-->
+    <div class = "mobile">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <svg xmlns="http://www.w3.org/2000/svg" height="36" viewBox="0 0 24 24" width="36">
+                    <path d="M0 0h24v24H0z" fill="none"/>
+                    <path fill="white" d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+                </svg>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-button routerLink="/all-places-page" routerLinkActive="active" matTooltip="List of places">All Places</button>
+            
+            <ng-container *ngIf="!user">
+                <button mat-stroked-button id="login" routerLink="/show-login" routerLinkActive="active">Login</button>
+                <button mat-stroked-button id="signIn" matTooltip="Doesn't work yet:(">Sign In</button>
+            </ng-container>
+            
+            <ng-container *ngIf="user">
+                <button mat-button routerLink="/user-places-page/{{userId}}" routerLinkActive="active" matTooltip="My places">{{user}}</button>
+                <button mat-stroked-button id="logOut" (click)="logout()">Log Out</button>
+            </ng-container>                       
+        </mat-menu> 
     </div>       
 </div>

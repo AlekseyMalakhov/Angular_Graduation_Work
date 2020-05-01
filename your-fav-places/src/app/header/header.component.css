@@ -47,6 +47,7 @@ button {
 }
 
 .auth_buttons {
+    display: block;
     margin-right: 15px;
 }
 
@@ -56,8 +57,61 @@ button {
 }
 
 .title {
+    display: inline-block;
     position: relative;
     top: 2px;
     font-size: 20px;
     font-weight: normal;
+}
+
+.title_mobile {
+    display: none;
+}
+
+/*
+.desktop {
+    display: block;
+}
+*/
+
+.all_places {
+    display: inline-block;
+}
+
+.mobile {
+    display: none;
+}
+
+.home_button {
+    display: none;
+}
+
+@media (max-width: 770px) {
+    .mobile {
+        display: block;
+    }
+
+    .auth_buttons {
+        display: none;
+    }
+
+    .all_places {
+        display: none;
+    }
+}
+
+@media (max-width: 630px) {
+    .home_button {
+        display: inline-block;
+    }
+    .title {
+        display: none;
+    }
+    .title_mobile {
+        display: inline-block;
+        position: relative;
+        top: 2px;
+        font-size: 20px;
+        font-weight: normal;
+    }
 }

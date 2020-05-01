@@ -11,6 +11,7 @@ import { PlacesService } from "../places.service";
 })
 export class MainComponent implements OnInit {
   places;
+  editPlace: boolean;
   //arr_places;
   sidenav_pos:string;
   //user = "";
@@ -33,6 +34,7 @@ export class MainComponent implements OnInit {
     this.data.changeUserPage(false);
     this.data.currentPosition.subscribe(sidenav_pos => this.sidenav_pos = sidenav_pos);
     this.data.currentUser.subscribe(user_obj => this.user_obj = user_obj);
+    this.data.currentEditPlace.subscribe(editPlace => this.editPlace = editPlace);
     //this.data.currentPlaces.subscribe(places => this.places = places);
     this.data.currentFilteredPlaces.subscribe(places => this.places = places);
     this.data.currentSidenavButton.subscribe(sidenavButtonDisplay => this.sidenavButtonDisplay = sidenavButtonDisplay);
@@ -48,6 +50,24 @@ export class MainComponent implements OnInit {
     }
     */
     //this.createArr();
+  }
+
+  getSidenavClass() {
+    if ((this.sidenav_pos === "show") &&(!this.editPlace)) {
+      return "show normal"
+    }
+
+    if ((this.sidenav_pos === "hide") &&(!this.editPlace)) {
+      return "hide normal"
+    }
+
+    if ((this.sidenav_pos === "show") &&(this.editPlace)) {
+      return "show edit"
+    }
+
+    if ((this.sidenav_pos === "hide") &&(this.editPlace)) {
+      return "hide edit"
+    }
   }
 
   /*

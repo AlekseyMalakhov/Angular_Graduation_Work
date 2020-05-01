@@ -57,7 +57,7 @@ loadPlaces() {
           data.changePlaces(places);
       }
   };
-  xhttp.open("GET", "http://localhost:8080/places.json", true);
+  xhttp.open("GET", "https://your-favorite-places.ew.r.appspot.com/places.json", true);
   xhttp.send();
 }
 

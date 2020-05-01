@@ -8,26 +8,42 @@ app-sidenav.hide {
 }
 */
 app-sidenav {
+    display: flex;
+}
+
+app-sidenav.normal {
     transition: left 1s;
     width: 280px;
 }
 
-app-sidenav.show {
-    display: flex;
+app-sidenav.edit {
+    transition: left 1s;
+    width: 300px;
+}
+
+app-sidenav.normal.show {
     left: 0px;
 }
 
-app-sidenav.hide {
-    display: flex;
+app-sidenav.edit.show {
+    left: 0px;
+}
+
+app-sidenav.normal.hide {
     left: -290px;
 }
 
+app-sidenav.edit.hide {
+    left: -310px;
+}
+
 @media (max-width: 1400px) {
-    app-sidenav {
+    app-sidenav.normal {
         width: 230px;
     }
 
-    app-sidenav.hide {
+    app-sidenav.normal.hide {
         left: -240px;
     }
 }
+

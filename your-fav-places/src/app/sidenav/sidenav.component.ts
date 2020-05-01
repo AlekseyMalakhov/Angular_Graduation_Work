@@ -13,7 +13,7 @@ export class SidenavComponent implements OnInit {
   @Input() userId;
 
   editPlace: boolean;
-  mystyle = {};
+  //mystyle = {};
   selected_place;
   search_string: string;
   place_to_edit = {};
@@ -28,11 +28,13 @@ export class SidenavComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /*
   ngDoCheck() {
     if (this.editPlace) {
       this.mystyle = {minWidth: "300px"};
     }
   }
+  */
 
   addPlace() {
     if (this.user) {
@@ -60,7 +62,7 @@ export class SidenavComponent implements OnInit {
     this.data.changePlaceSaved(false);
     this.data.changePlaceToEdit({});
     this.data.changeNewPlaceCoords([700, 300]);
-    this.mystyle = {minWidth: ""};
+    //this.mystyle = {minWidth: ""};
   }
 
   cancelSelection() {

@@ -30,6 +30,7 @@ export class AppComponent implements OnInit {
   }
 
 async ngOnInit() {
+  this.loadPlaces();
   //this.data.currentPosition.subscribe(sidenav_pos => this.sidenav_pos = sidenav_pos);
   this.data.currentUserPage.subscribe(user_page => this.user_page = user_page);
   //this.data.currentPlaces.subscribe(places => this.arr_places = places);
@@ -45,6 +46,19 @@ async ngOnInit() {
     this.data.changeUser({user: this.user, 
                           userId: this.userId});
   }  
+}
+
+loadPlaces() {
+  var data = this.data;
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          var places = JSON.parse(this.responseText);
+          data.changePlaces(places);
+      }
+  };
+  xhttp.open("GET", "http://localhost:8080/places.json", true);
+  xhttp.send();
 }
 
 /*

@@ -41,6 +41,8 @@ export class DeleteButtonComponent implements OnInit {
       new_list.splice(pos, 1);
       this.data.changePlaces(new_list);
       console.log(new_list);
+      //чтобы после выхода из удаления на сайдбаре не отображалось удаленное место
+      this.data.changeSelectedPlace({});
     } else {
       console.log("no such position");
     }

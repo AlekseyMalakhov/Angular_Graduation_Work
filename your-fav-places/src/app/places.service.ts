@@ -1,9 +1,31 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import places from "./places";
+//import places from "./places";
+//import places_json from "./places_json.json";
+
+
+/*
+var places;
+loadPlaces();
+
+function loadPlaces() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            places = JSON.parse(this.responseText);
+            changePlaces(places);
+        }
+    };
+    xhttp.open("GET", "http://localhost:8080/places.json", true);
+    xhttp.send();
+}
+
+*/
+
+//console.log(places_json);
+/*
 
 //переводим places в сплошной массив
-
 function createArr(places) {
   var arr_places = [];
   var id;
@@ -17,6 +39,7 @@ function createArr(places) {
 }
 
 var arr_places = createArr(places);
+*/
 
 var filter_init = {
   author: "All authors",
@@ -68,7 +91,7 @@ export class PlacesService {
     this.selectedPlace.next(place);
   }
 
-  private placesList = new BehaviorSubject(arr_places);       //список мест
+  private placesList = new BehaviorSubject([]);       //список мест
   currentPlaces = this.placesList.asObservable();
   changePlaces(newPlaces) {
     this.placesList.next(newPlaces);

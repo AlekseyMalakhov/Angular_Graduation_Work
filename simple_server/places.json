@@ -448,5 +448,14 @@
       "img":"3.jpg",
       "description":"Maecenas accumsan lacus vel facilisis volutpat est velit egestas dui. Pulvinar \n    sapien et ligula ullamcorper malesuada proin libero nunc consequat. \n    A iaculis at erat pellentesque adipiscing commodo. Sagittis orci a scelerisque purus semper eget duis at tellus. Viverra vitae congue eu \n    consequat ac felis. Habitant morbi tristique senectus et. Maecenas accumsan lacus vel facilisis volutpat est velit egestas dui. Pulvinar \n    sapien et ligula ullamcorper malesuada proin libero nunc consequat. Aliquet eget sit amet tellus cras. Pellentesque elit eget gravida cum \n    sociis natoque penatibus. In hac habitasse platea dictumst quisque sagittis purus. Nisl condimentum id venenatis a condimentum vitae. Dolor \n    sit amet consectetur adipiscing elit pellentesque habitant.",
       "coords":[2244,805]
+    },
+    {
+      "id":51,
+      "name":"Facilisis",
+      "author":"Fedor Emelianenko",
+      "author_id":"fedor_emelianenko",
+      "img":"2.jpg",
+      "description":"Vitae sapien pellentesque habitant morbi tristique senectus et netus. Vel orci porta non pulvinar neque laoreet suspendisse. Tincidunt augue interdum velit. Leo vel orci porta non. Cursus euismod quis viverra nibh cras pulvinar mattis. Duis ultricies lacus \n    sed turpis. Vitae sapien pellentesque habitant morbi tristique senectus et netus. Vel orci porta non pulvinar neque laoreet suspendisse. \n    Orci sagittis eu volutpat odio facilisis mauris. Nisl purus in mollis nunc sed id semper risus. At volutpat diam ut venenatis tellus in. Amet \n    luctus venenatis lectus magna fringilla urna. Nullam non nisi est sit amet facilisis magna etiam tempor.",
+      "coords":[72,484]
     }
   ]

@@ -84,6 +84,8 @@ export class AddPlaceComponent implements OnInit {
       new_list[pos] = editing_place;
       this.data.changePlaces(new_list);
       this.data.changePlaceSaved(true);
+      //чтобы после выхода из редактирования на сайдбаре отображалось уже отредактированное место
+      this.data.changeSelectedPlace(editing_place);
       //console.log(new_list);
     }
     

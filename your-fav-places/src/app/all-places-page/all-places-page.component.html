@@ -1,10 +1,19 @@
 <div class="container">
     <h2>List of places</h2>
     <app-sort></app-sort>
-    <div *ngFor = "let place of places">
+    <div *ngFor = "let place of places; index as i">
         <ng-container *ngIf="place && search(place.name)">
-            <app-all-places-card [place] = "place"></app-all-places-card>
+            <ng-container *ngIf="(i >= view_range[0]) && (i <= view_range[1])">
+                <p>{{i}}</p>
+                <app-all-places-card [place] = "place"></app-all-places-card>
+            </ng-container>
         </ng-container>        
     </div>
+    <mat-paginator [length]="51"
+              [pageSize]="25"
+              [pageSizeOptions]="[25, 50, 100]"
+              (page)="createRange()">
+    </mat-paginator>
+
 </div>
 

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { PlacesService } from "../places.service";
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-all-places-page',
@@ -7,9 +8,11 @@ import { PlacesService } from "../places.service";
   styleUrls: ['./all-places-page.component.css']
 })
 export class AllPlacesPageComponent implements OnInit {
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   places;
   //arr_places;
   //filter;
+  view_range = [0, 100];
   search_string: string;
   
   constructor(private data: PlacesService) { }
@@ -24,6 +27,21 @@ export class AllPlacesPageComponent implements OnInit {
     this.data.changeSidenavButton("hide_button");
     
     //this.createArr();
+  }
+
+  /*
+
+  ngDoCheck() {
+    console.log(this.paginator);
+  }
+
+  */
+
+  createRange() {
+    console.log(this.paginator.pageSize);
+    console.log(this.paginator.pageIndex);
+    //this.view_range[0] = 
+    //this.view_range[1] = 
   }
 
   /*

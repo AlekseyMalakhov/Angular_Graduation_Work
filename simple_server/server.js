@@ -13,7 +13,7 @@ app.get('/places.json', function(req, res){            // когда брауз�
 });
 */
 
-app.get('/', function(req, res){
+app.get('*', function(req, res){
   res.sendFile(__dirname + "/dist/your-fav-places/index.html");
 });
   

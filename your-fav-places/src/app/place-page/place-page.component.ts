@@ -26,7 +26,8 @@ export class PlacePageComponent implements OnInit {
   getPlace() {
     var id = +this.route.snapshot.paramMap.get('id');
     var pos = this.places.findIndex((e) => (e.id === id));
-    this.place = this.places[pos];    
+    this.place = this.places[pos];
+    //console.log   
   }
 
   back() {

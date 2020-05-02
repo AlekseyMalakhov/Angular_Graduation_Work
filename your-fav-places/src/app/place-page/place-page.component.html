@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf = "place">
     <!--
     <button mat-icon-button class="back" (click) = "back()">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="grey" width="36px" height="36px">
@@ -16,10 +16,18 @@
         <p>{{place.description}}</p>
     </div>
     <mat-divider></mat-divider>   
-
 </div>
-<div class = "actions" *ngIf = "place.author === user_obj.user">
+<div class = "actions" *ngIf = "place && (place.author === user_obj.user)">
     <!--<button mat-button (click) = "edit()">Edit</button>-->
     <app-edit-button [place] = "place" [go_root] = "true"></app-edit-button>
     <app-delete-button [del_place_id] = "place.id" [del_place_name] = "place.name" [back_after_del] = "true"></app-delete-button>
+</div>
+
+<div class = "error" *ngIf = "!place">
+    <div>
+        <h2>Sorry, it seems this page does not exist anymore.</h2>
+    </div>
+    <div>
+        <button mat-raised-button routerLink="/" routerLinkActive="active" matTooltip="Home">Go to the main page</button>
+    </div>      
 </div>

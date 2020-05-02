@@ -46,3 +46,22 @@ app-edit-button {
     margin-top: 15px;
     margin-bottom: 15px;
 }
+
+.error {
+    display: flex;
+    flex-direction: column;
+    /*
+    text-align: center;
+    */
+    justify-content: center;
+    align-items: center;
+    
+    margin: 0 20px;
+}
+
+/*
+
+.error button {
+    width: 200px;
+}
+*/

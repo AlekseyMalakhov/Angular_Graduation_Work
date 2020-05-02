@@ -12,7 +12,7 @@ export class AllPlacesPageComponent implements OnInit {
   places;
   //arr_places;
   //filter;
-  view_range = [0, 100];
+  view_range = [0, 99];
   search_string: string;
   
   constructor(private data: PlacesService) { }
@@ -24,8 +24,7 @@ export class AllPlacesPageComponent implements OnInit {
     this.data.changeUserPage(false);
     this.data.currentSortedPlaces.subscribe(places => this.places = places);
     this.data.currentSearchString.subscribe(search_string => this.search_string = search_string);
-    this.data.changeSidenavButton("hide_button");
-    
+    this.data.changeSidenavButton("hide_button");    
     //this.createArr();
   }
 
@@ -38,10 +37,23 @@ export class AllPlacesPageComponent implements OnInit {
   */
 
   createRange() {
-    console.log(this.paginator.pageSize);
-    console.log(this.paginator.pageIndex);
-    //this.view_range[0] = 
-    //this.view_range[1] = 
+    var pageIndex = this.paginator.pageIndex;
+    var pageSize = this.paginator.pageSize;
+    //console.log(this.paginator.pageSize);
+   //console.log(this.paginator.pageIndex);
+    var first_item: number;
+    var last_item: number;
+    if (pageIndex === 0) {
+      first_item = 0;
+      last_item = pageSize - 1;      
+    }
+    if (pageIndex !== 0) {
+      first_item = pageSize * pageIndex;
+      last_item = first_item + pageSize - 1;
+    }
+    this.view_range = [first_item, last_item];
+    //console.log(this.view_range);
+    //console.log(this.paginator.length);
   }
 
   /*

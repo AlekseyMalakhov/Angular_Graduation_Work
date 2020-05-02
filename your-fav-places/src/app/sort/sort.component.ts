@@ -42,13 +42,18 @@ export class SortComponent implements OnInit {
   }
 
   sortAZ() {
-    this.names = [];
-    this.names = this.places.map((e) => {
+    var names = [];
+    names = this.places.map((e) => {
       if (e) {
         return e.name;
       }
     });
-    this.names.sort();    
+    // имена могут повторяться. Нужно исключить повторяющиеся
+    var checkedSet = new Set(names);    //сет может содержать только уникальные данные
+    names = [...checkedSet];
+    this.names = names;
+    this.names.sort();
+    //console.log(this.names);
   }
 
   sortZA() {
@@ -65,5 +70,6 @@ export class SortComponent implements OnInit {
         }
       });
     });
-  }
+    //console.log(this.sorted_places);
+  }  
 }

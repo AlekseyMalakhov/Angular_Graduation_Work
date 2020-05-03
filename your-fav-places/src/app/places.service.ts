@@ -22,6 +22,16 @@ function loadPlaces() {
 
 */
 
+
+function upLoadPlaces(places) {
+  var placesJSON = JSON.stringify(places);
+  var xhttp = new XMLHttpRequest();
+
+  xhttp.open("POST", "https://fav-places-server.herokuapp.com/places.json", true);
+  xhttp.setRequestHeader("Content-type", "application/json");
+  xhttp.send(placesJSON);
+}
+
 //console.log(places_json);
 /*
 
@@ -49,7 +59,7 @@ var filter_init = {
   max_long: 0,
 };
 
-var id_init = 51;         //начальный id
+var id_init = 52;         //начальный id
 /*
 interface Placeable { 
   id: number; 
@@ -95,7 +105,8 @@ export class PlacesService {
   currentPlaces = this.placesList.asObservable();
   changePlaces(newPlaces) {
     this.placesList.next(newPlaces);
-    console.log(newPlaces);
+    //console.log(newPlaces);
+    upLoadPlaces(newPlaces);
   }
 
   private searchString = new BehaviorSubject("");          //переключаем кнопку кнопку сайднав/назад

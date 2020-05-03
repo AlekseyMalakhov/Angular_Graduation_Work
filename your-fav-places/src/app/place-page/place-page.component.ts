@@ -20,7 +20,7 @@ export class PlacePageComponent implements OnInit {
     this.data.currentPlaces.subscribe(places => this.places = places);
     this.data.currentUser.subscribe(user_obj => this.user_obj = user_obj);
     this.data.changeSidenavButton("hide_button");
-    this.getPlace();
+    //this.getPlace();
   }
 
   getPlace() {
@@ -32,6 +32,12 @@ export class PlacePageComponent implements OnInit {
 
   back() {
     window.history.back();
+  }
+
+  ngDoCheck() {
+    if (this.places.length > 0) {
+      this.getPlace();
+    }
   }
 
   /*

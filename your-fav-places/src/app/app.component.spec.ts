@@ -1,15 +1,36 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { OktaAuthService } from '@okta/okta-angular';
+import {
+  OKTA_CONFIG,
+  OktaAuthGuard,
+  OktaAuthModule,
+  OktaCallbackComponent,
+} from '@okta/okta-angular';
+
+import sampleConfig from './app.config';
+
+const oktaConfig = Object.assign({
+  onAuthRequired: ({oktaAuth, router}) => {
+    // Redirect the user to your custom login page
+    router.navigate(['/login']);
+  }
+}, sampleConfig.oidc);
+
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        OktaAuthService,
       ],
       declarations: [
         AppComponent
+      ],
+      providers: [
+        { provide: OKTA_CONFIG, useValue: oktaConfig },
       ],
     }).compileComponents();
   }));

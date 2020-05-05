@@ -1,4 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Routes, RouterModule } from '@angular/router';
+
+const appRoutes: Routes = [
+  {
+    path: '**',
+    redirectTo: '/',
+  },  
+];
+
 
 import { SidenavComponent } from './sidenav.component';
 
@@ -8,7 +17,8 @@ describe('SidenavComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SidenavComponent ]
+      declarations: [ SidenavComponent ],
+      imports:[RouterModule.forRoot(appRoutes)],
     })
     .compileComponents();
   }));

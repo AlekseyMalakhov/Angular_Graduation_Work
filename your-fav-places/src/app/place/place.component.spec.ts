@@ -2,6 +2,16 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PlaceComponent } from './place.component';
 
+var test_place = {
+  id: 1,
+  name: "Minsk",
+  author: "Aleksey Malakhov",
+  author_id: "aleksey_malakhov",
+  img: '1.jpg',
+  description: "Very cosy place",
+  coords: [700, 300],
+};
+
 describe('PlaceComponent', () => {
   let component: PlaceComponent;
   let fixture: ComponentFixture<PlaceComponent>;
@@ -16,6 +26,7 @@ describe('PlaceComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PlaceComponent);
     component = fixture.componentInstance;
+    component.place = test_place;
     fixture.detectChanges();
   });
 

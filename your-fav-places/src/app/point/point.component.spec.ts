@@ -12,7 +12,7 @@ var test_place = {
   coords: [700, 300],
 };
 
-describe('PointComponent', () => {
+xdescribe('PointComponent', () => {
   let component: PointComponent;
   let fixture: ComponentFixture<PointComponent>;
 

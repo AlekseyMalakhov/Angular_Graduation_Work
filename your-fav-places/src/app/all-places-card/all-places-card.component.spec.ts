@@ -14,7 +14,7 @@ var test_place = {
 
 var userpage = false;
 
-describe('AllPlacesCardComponent', () => {
+xdescribe('AllPlacesCardComponent', () => {
   let component: AllPlacesCardComponent;
   let fixture: ComponentFixture<AllPlacesCardComponent>;
 

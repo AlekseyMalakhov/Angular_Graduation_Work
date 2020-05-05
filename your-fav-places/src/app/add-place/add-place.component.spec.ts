@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddPlaceComponent } from './add-place.component';
 
-describe('EditPlaceComponent', () => {
+xdescribe('EditPlaceComponent', () => {
   let component: AddPlaceComponent;
   let fixture: ComponentFixture<AddPlaceComponent>;
 

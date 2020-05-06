@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { AllPlacesCardComponent } from './all-places-card.component';
 
@@ -14,13 +15,14 @@ var test_place = {
 
 var userpage = false;
 
-xdescribe('AllPlacesCardComponent', () => {
+describe('AllPlacesCardComponent', () => {
   let component: AllPlacesCardComponent;
   let fixture: ComponentFixture<AllPlacesCardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AllPlacesCardComponent ]
+      declarations: [ AllPlacesCardComponent ],
+      schemas: [NO_ERRORS_SCHEMA],
     })
     .compileComponents();
   }));

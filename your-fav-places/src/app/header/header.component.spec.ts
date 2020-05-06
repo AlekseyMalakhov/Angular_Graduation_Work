@@ -3,7 +3,7 @@ import {MatMenuModule} from '@angular/material/menu';
 
 import { HeaderComponent } from './header.component';
 
-xdescribe('HeaderComponent', () => {
+describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
 
@@ -23,5 +23,14 @@ xdescribe('HeaderComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('должен переключать сайднав', () => {
+    component.sidenav_pos = "hide";
+    var toggle_sidenav_butt = fixture.nativeElement.querySelector("#toggle_sidenav_butt");
+    toggle_sidenav_butt.click();
+    expect(component.sidenav_pos).toEqual("show");
+    toggle_sidenav_butt.click();
+    expect(component.sidenav_pos).toEqual("hide");
   });
 });

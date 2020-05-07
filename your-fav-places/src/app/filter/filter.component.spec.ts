@@ -39,21 +39,12 @@ var filter = {
 class MockService {  
   private placesList = new BehaviorSubject(test_places);       //список мест
   currentPlaces = this.placesList.asObservable();
-  changePlaces(newPlaces) {
-    this.placesList.next(newPlaces);
-  }
 
   private userPage = new BehaviorSubject(false);             //проверяем если мы на странице пользователя (тогда показываем только его места)
   currentUserPage = this.userPage.asObservable();
-  changeUserPage(user_page: boolean) {
-    this.userPage.next(user_page);
-  }
 
   private filterDisplay = new BehaviorSubject(true);          //переключаем отображение фильтра
   currentFilterDisplay = this.filterDisplay.asObservable();
-  changeFilterDisplay(filter_display: boolean) {
-    this.filterDisplay.next(filter_display);
-  }
 
   changeFilteredPlaces(arr) {}
 }

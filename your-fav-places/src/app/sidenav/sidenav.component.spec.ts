@@ -9,7 +9,6 @@ const appRoutes: Routes = [
   },  
 ];
 
-
 import { SidenavComponent } from './sidenav.component';
 
 describe('SidenavComponent', () => {

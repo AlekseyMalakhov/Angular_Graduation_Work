@@ -42,9 +42,6 @@ class MockService {
 
   private newPlaceCoords = new BehaviorSubject([840, 690]);             //раздаем координаты добавленного места
   currentNewPlaceCoords = this.newPlaceCoords.asObservable();
-  changeNewPlaceCoords(coords: number[]) {
-    this.newPlaceCoords.next(coords);
-  }
 
   changeSelectedPlace(obj) {}
   changePlaceSaved(bul) {}

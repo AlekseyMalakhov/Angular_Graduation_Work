@@ -47,15 +47,9 @@ var test_places = [
 class MockService {  
   private placesList = new BehaviorSubject(test_places);       //список мест
   currentPlaces = this.placesList.asObservable();
-  changePlaces(newPlaces) {
-    this.placesList.next(newPlaces);
-  }
 
   private user = new BehaviorSubject({});          //раздаем имя пользователя
   currentUser= this.user.asObservable();
-  changeUser(user_obj: object) {
-    this.user.next(user_obj);
-  }
 
   changeSidenavButton() {}
 }

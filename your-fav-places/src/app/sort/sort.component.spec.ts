@@ -38,9 +38,6 @@ var test_places = [
 class MockService {  
   private filteredPlaces = new BehaviorSubject(test_places);        //раздаем отфильтрованный список мест
   currentFilteredPlaces = this.filteredPlaces.asObservable();
-  changeFilteredPlaces(filtered_places) {
-    this.filteredPlaces.next(filtered_places);
-  }
 
   changeSortedPlaces(arr) {}
 }

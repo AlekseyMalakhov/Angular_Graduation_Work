@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+//import { ActivatedRoute } from '@angular/router';
 import { PlacesService } from "../places.service";
 
 @Component({
@@ -12,7 +12,7 @@ export class UserPlacesPageComponent implements OnInit {
   //user_places;
   search_string: string;
 
-  constructor(private route: ActivatedRoute, private data: PlacesService) { }
+  constructor(private data: PlacesService) { }
 
   ngOnInit(): void {
     //var author_id = this.route.snapshot.paramMap.get('author');

@@ -40,15 +40,9 @@ var test_places = [
 class MockService {  
   private sortedPlaces = new BehaviorSubject(test_places);        //раздаем отфильтрованный и отсортированный список мест
   currentSortedPlaces = this.sortedPlaces.asObservable();
-  changeSortedPlaces(sorted_places) {
-    this.sortedPlaces.next(sorted_places);
-  }
 
   private searchString = new BehaviorSubject("dno");          //переключаем кнопку кнопку сайднав/назад
   currentSearchString = this.searchString.asObservable();
-  changeSearchString(search: string) {
-    this.searchString.next(search);
-  }
 
   changeUserPage() {}
   changeSidenavButton() {}

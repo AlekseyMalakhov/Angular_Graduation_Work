@@ -67,7 +67,7 @@ var edited_place = {
   coords: [500, 1200],
 };
 
-describe('EditPlaceComponent', () => {
+describe('AddPlaceComponent', () => {
   let component: AddPlaceComponent;
   let fixture: ComponentFixture<AddPlaceComponent>;
 

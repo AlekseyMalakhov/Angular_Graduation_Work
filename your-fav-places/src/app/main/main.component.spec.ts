@@ -1,9 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { MainComponent } from './main.component';
 
-xdescribe('MainComponent', () => {
+describe('MainComponent', () => {
   let component: MainComponent;
   let fixture: ComponentFixture<MainComponent>;
 
@@ -11,6 +12,7 @@ xdescribe('MainComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ MainComponent ],
       providers: [{provide: Router, useValue: "/"}],
+      schemas: [NO_ERRORS_SCHEMA],
     })
     .compileComponents();
   }));

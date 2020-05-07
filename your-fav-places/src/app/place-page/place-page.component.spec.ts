@@ -1,21 +1,17 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
-import { convertToParamMap, ParamMap, Params } from '@angular/router';
-import { ReplaySubject } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 import { PlacesService } from "../places.service";
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { PlacePageComponent } from './place-page.component';
 
 class ActivatedRouteStub {
-  private subject = new ReplaySubject<ParamMap>();
-  constructor(initialParams?: Params) {
-    this.setParamMap(initialParams);
-  }
-  readonly paramMap = this.subject.asObservable();
-  setParamMap(params?: Params) {
-    this.subject.next(convertToParamMap(params));
-  }
+ route = {author: "sergey_sergeev", id: 2};
+ snapshot = {
+  paramMap: {
+    get: (prop) => { return this.route[prop] }
+  },
+ };
 }
 
 var test_places = [
@@ -70,12 +66,12 @@ describe('PlacePageComponent', () => {
   let activatedRoute: ActivatedRouteStub;
 
   beforeEach(async(() => {
-    //activatedRoute = new ActivatedRouteStub({ author: "sergey_sergeev", id: 2 });
+    activatedRoute = new ActivatedRouteStub();
     TestBed.configureTestingModule({
       declarations: [ PlacePageComponent ],
       schemas: [NO_ERRORS_SCHEMA],
       providers: [
-        {provide: ActivatedRoute, useClass: ActivatedRouteStub},
+        {provide: ActivatedRoute, useValue: activatedRoute},
         {provide: PlacesService, useClass: MockService},
       ],
     })
@@ -84,8 +80,6 @@ describe('PlacePageComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(PlacePageComponent);
-    //activatedRoute = fixture.debugElement.injector.get(ActivatedRoute) as any;
-    activatedRoute.setParamMap({ author: "sergey_sergeev", id: 2 });
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -96,7 +90,6 @@ describe('PlacePageComponent', () => {
 
 
   it('должен проходить к существующему месту', () => {
-    console.log(component.place);
     expect(component.place.name).toEqual("Grodno");
   });
 

@@ -35,12 +35,12 @@ export class DeleteButtonComponent implements OnInit {
   deletePlace() {
     var new_list = [...this.places];
     var pos = new_list.findIndex((e) => (e.id === this.del_place_id));
-    console.log("pos = " + pos);
-    console.log("del_place_id = " + this.del_place_id);
+    //console.log("pos = " + pos);
+    //console.log("del_place_id = " + this.del_place_id);
     if (pos !== -1) {
       new_list.splice(pos, 1);
       this.data.changePlaces(new_list);
-      console.log(new_list);
+      //console.log(new_list);
       //чтобы после выхода из удаления на сайдбаре не отображалось удаленное место
       this.data.changeSelectedPlace({});
     } else {

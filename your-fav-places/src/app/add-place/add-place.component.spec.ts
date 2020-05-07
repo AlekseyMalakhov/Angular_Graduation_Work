@@ -109,7 +109,7 @@ describe('EditPlaceComponent', () => {
     component.place_to_edit = edited_place;
     component.new_place = edited_place;
     component.savePlace();
-    console.log(component.places);
+    //console.log(component.places);
     expect(component.places[1].description).toEqual("I decided change description");
   });
   

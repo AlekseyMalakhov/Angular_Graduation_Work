@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { PointCardComponent } from './point-card.component';
 
@@ -12,13 +13,14 @@ var test_place = {
   coords: [700, 300],
 };
 
-xdescribe('PointCardComponent', () => {
+describe('PointCardComponent', () => {
   let component: PointCardComponent;
   let fixture: ComponentFixture<PointCardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PointCardComponent ]
+      declarations: [ PointCardComponent ],
+      schemas: [NO_ERRORS_SCHEMA],
     })
     .compileComponents();
   }));

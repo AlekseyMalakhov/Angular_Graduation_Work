@@ -49,6 +49,7 @@ import { FilterComponent } from './filter/filter.component';
 import { SortComponent } from './sort/sort.component';
 import { DeleteButtonComponent } from './delete-button/delete-button.component';
 import { EditButtonComponent } from './edit-button/edit-button.component';
+import { LoaderComponent } from './loader/loader.component';
 
 const appRoutes: Routes = [
   {
@@ -107,7 +108,8 @@ const appRoutes: Routes = [
     FilterComponent,
     SortComponent,
     DeleteButtonComponent,
-    EditButtonComponent
+    EditButtonComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

@@ -31,7 +31,6 @@ app-place-page,app-all-places-page,app-user-places-page {
     display: none;
 }
 
-
 #sign-in-widget .okta-sign-in-header.auth-header {
     padding-top: 10px;
     padding-bottom: 0px;

@@ -1,7 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    padding:0;
+    margin:0;
+    /*
+    width: 100vw;
+    height: 100vh;
+    */
+}
 
 app-sidenav {
     position: fixed;
@@ -21,6 +29,15 @@ app-login {
     z-index: 2;
     display: block;
 }
+/*
+app-main {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+*/
 
 app-place-page,app-all-places-page,app-user-places-page {
     position: relative;

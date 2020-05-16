@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    padding-right: 30px;
+    /*padding-right: 30px;*/
     background-color: #3f51b5;
     color: #fff;
     font-size: 20px;
@@ -24,7 +24,7 @@ span {
     flex: auto;
 }
 
-.content-right {
+.desktop {
     flex: auto;
     display: flex;
     flex-direction: row;
@@ -68,17 +68,11 @@ button {
     display: none;
 }
 
-/*
-.desktop {
-    display: block;
-}
-*/
-
 .all_places {
     display: inline-block;
 }
 
-.mobile {
+.mobile770max,.mobile450max {
     display: none;
 }
 
@@ -87,15 +81,11 @@ button {
 }
 
 @media (max-width: 770px) {
-    .mobile {
+    .mobile770max {
         display: block;
     }
 
-    .auth_buttons {
-        display: none;
-    }
-
-    .all_places {
+    .desktop {
         display: none;
     }
 }
@@ -113,5 +103,19 @@ button {
         top: 2px;
         font-size: 20px;
         font-weight: normal;
+    }
+}
+
+@media (max-width: 450px) {
+    .mobile770max {
+        display: none;
+    }
+    
+    .mobile450max {
+        display: block;
+    }
+
+    .desktop {
+        display: none;
     }
 }

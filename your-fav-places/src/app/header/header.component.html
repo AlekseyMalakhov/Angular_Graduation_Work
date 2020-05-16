@@ -17,8 +17,8 @@
         </button>
     </div>
 
-    
-    <div class = "content-right">        
+    <!-- правая часть для десктопа-->
+    <div class = "desktop">        
         <button mat-icon-button (click)="toggleFilter()" matTooltip="Filter">
             <img src="/assets/svg/filter.svg" alt="filter">
         </button>
@@ -26,8 +26,7 @@
             <img src="/assets/svg/search.svg" alt="search">       
         </button>        
         <input type="text" *ngIf="searchbox" (keyup) = "search($event)" placeholder="Name of the place">
-
-        <!--для десктопа-->
+        
         <button class="all_places" mat-button routerLink="/all-places-page" routerLinkActive="active" matTooltip="List of places">All Places</button>
               
         <div class="auth_buttons" *ngIf="!user">
@@ -41,12 +40,19 @@
         </div>     
     </div>
     
-    <!--для мобильных устройств-->
-    <div class = "mobile">
-        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <!--для мобильных устройств 450...770рх-->
+    <div class = "mobile770max">
+        <button mat-icon-button (click)="toggleFilter()" matTooltip="Filter">
+            <img src="/assets/svg/filter.svg" alt="filter">
+        </button>
+        <button mat-icon-button (click)="toggleSearchBox()" matTooltip="Search">            
+            <img src="/assets/svg/search.svg" alt="search">       
+        </button>        
+        <input type="text" *ngIf="searchbox" (keyup) = "search($event)" placeholder="Name of the place">
+        <button mat-icon-button [matMenuTriggerFor]="menu1" aria-label="Example icon-button with a menu">
             <img src="/assets/svg/mob_menu.svg" alt="mobile_menu"> 
         </button>
-        <mat-menu #menu="matMenu">
+        <mat-menu #menu1="matMenu">
             <button mat-button routerLink="/all-places-page" routerLinkActive="active" matTooltip="List of places">All Places</button>
             
             <ng-container *ngIf="!user">
@@ -59,5 +65,28 @@
                 <button mat-stroked-button id="logOut" (click)="logout()">Log Out</button>
             </ng-container>                       
         </mat-menu> 
-    </div>       
+    </div>
+
+    <!--для мобильных устройств 450 max-->
+    <div class = "mobile450max">
+        <input type="text" *ngIf="searchbox" (keyup) = "search($event)" placeholder="Name of the place">
+        <button mat-icon-button [matMenuTriggerFor]="menu2" aria-label="Example icon-button with a menu">
+            <img src="/assets/svg/mob_menu.svg" alt="mobile_menu"> 
+        </button>
+        <mat-menu #menu2="matMenu">
+            <button mat-button (click)="toggleFilter()" matTooltip="Filter">Filter</button>
+            <button mat-button (click)="toggleSearchBox()" matTooltip="Search">Search</button>
+            <button mat-button routerLink="/all-places-page" routerLinkActive="active" matTooltip="List of places">All Places</button>
+            
+            <ng-container *ngIf="!user">
+                <button mat-stroked-button id="login" routerLink="/show-login" routerLinkActive="active">Login</button>
+                <button mat-stroked-button id="signIn" matTooltip="Doesn't work yet:(">Sign In</button>
+            </ng-container>
+            
+            <ng-container *ngIf="user">
+                <button mat-button routerLink="/user-places-page/{{userId}}" routerLinkActive="active" matTooltip="My places">{{user}}</button>
+                <button mat-stroked-button id="logOut" (click)="logout()">Log Out</button>
+            </ng-container>                       
+        </mat-menu> 
+    </div>
 </div>

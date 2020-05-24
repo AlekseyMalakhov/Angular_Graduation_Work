@@ -4,19 +4,19 @@ https://your-favorite-places.ew.r.appspot.com/
 
 For login use following test accounts:
 
-stipe_miocic@test.com
+stipe_miocic@test.com<br/>
 123456789Nn
 
-khabib_nurmagamedov@test.com
+khabib_nurmagamedov@test.com<br/>
 123456789Ff
 
-conor_mcgregor@test.com
+conor_mcgregor@test.com<br/>
 123456789Dd
 
-mirkocrocop@test.com
+mirkocrocop@test.com<br/>
 123456789Tt
 
-fedor_emelianenko@test.com
+fedor_emelianenko@test.com<br/>
 123456789Zz
 
  

@@ -44,7 +44,15 @@ app-place-page,app-all-places-page,app-user-places-page {
     top: 80px;
 }
 
+/*
+
 .auth-footer,.custom-checkbox {
+    display: none;
+}
+
+*/
+
+.custom-checkbox {
     display: none;
 }
 
@@ -55,7 +63,7 @@ app-place-page,app-all-places-page,app-user-places-page {
 }
 
 #okta-sign-in .auth-content {
-    padding-bottom: 0px;
+    padding-bottom: 15px;
 }
 
 #okta-sign-in .o-form-head {

@@ -43,7 +43,16 @@ export class LoginComponent implements OnInit {
         click: function() {
           window.location.href = '';
         }
-      }]
+      }],
+      helpLinks: {
+        help: 'https://acme.com/help',
+        custom: [
+          {
+            text: 'More test accounts',
+            href: 'https://acme.com/what-is-okta'
+          },
+        ]
+      },
     });
   }
 

@@ -18,6 +18,10 @@ app.get('/places.json', function(req, res){            // когда брауз�
     res.sendFile(__dirname + "/places.json");
 });
 
+app.get('/okta.txt', function(req, res){
+  res.sendFile(__dirname + "/okta.txt");
+});
+
 app.post('/places.json', function (req, res) {
   res.send('Got a POST request');
   var data = JSON.stringify(req.body);

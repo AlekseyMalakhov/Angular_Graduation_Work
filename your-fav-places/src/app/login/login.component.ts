@@ -45,11 +45,11 @@ export class LoginComponent implements OnInit {
         }
       }],
       helpLinks: {
-        help: 'https://acme.com/help',
+        help: 'https://fav-places-server.herokuapp.com/okta.txt',
         custom: [
           {
-            text: 'More test accounts',
-            href: 'https://acme.com/what-is-okta'
+            text: 'Test accounts',
+            href: 'https://fav-places-server.herokuapp.com/okta.txt'
           },
         ]
       },

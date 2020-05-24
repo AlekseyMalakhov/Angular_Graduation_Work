@@ -31,7 +31,8 @@
               
         <div class="auth_buttons" *ngIf="!user">
             <button mat-stroked-button id="login" routerLink="/show-login" routerLinkActive="active">Login</button>
-            <button mat-stroked-button id="signIn" matTooltip="Doesn't work yet:(">Sign In</button>
+            <!--<button mat-stroked-button id="signIn" matTooltip="Doesn't work yet:(">Sign In</button>-->
+            <a mat-stroked-button id="signIn" href="https://fav-places-server.herokuapp.com/okta.txt" target="_blank">Test users</a>
         </div>
         
         <div class="auth_buttons" *ngIf="user">            
@@ -57,7 +58,8 @@
             
             <ng-container *ngIf="!user">
                 <button mat-stroked-button id="login" routerLink="/show-login" routerLinkActive="active">Login</button>
-                <button mat-stroked-button id="signIn" matTooltip="Doesn't work yet:(">Sign In</button>
+                <!--<button mat-stroked-button id="signIn" matTooltip="Doesn't work yet:(">Sign In</button>-->
+                <a mat-stroked-button id="signIn" href="https://fav-places-server.herokuapp.com/okta.txt" target="_blank">Test users</a>
             </ng-container>
             
             <ng-container *ngIf="user">
@@ -80,7 +82,8 @@
             
             <ng-container *ngIf="!user">
                 <button mat-stroked-button id="login" routerLink="/show-login" routerLinkActive="active">Login</button>
-                <button mat-stroked-button id="signIn" matTooltip="Doesn't work yet:(">Sign In</button>
+                <!--<button mat-stroked-button id="signIn" matTooltip="Doesn't work yet:(">Sign In</button>-->
+                <a mat-stroked-button id="signIn" href="https://fav-places-server.herokuapp.com/okta.txt" target="_blank">Test users</a>
             </ng-container>
             
             <ng-container *ngIf="user">

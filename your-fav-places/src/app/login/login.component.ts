@@ -49,7 +49,8 @@ export class LoginComponent implements OnInit {
         custom: [
           {
             text: 'Test accounts',
-            href: 'https://fav-places-server.herokuapp.com/okta.txt'
+            href: 'https://fav-places-server.herokuapp.com/okta.txt',
+            target: "_blank",
           },
         ]
       },

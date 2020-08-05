@@ -91,4 +91,12 @@ export class AddPlaceComponent implements OnInit {
     
   }
 
+  /*
+  It looks like when we change the place or create a new one we always recreate the full list of places, that can be wasteful. We should write separate functions which
+  adress just particular strings in database and do not touch the others. Thus in case of huge number of strings in data base we will not overload the network and 
+  computer resourses.
+  So for now we should write a function which add a new place and update an existing place. In both cases we need only need the current modified or created place. Not
+  full list of places like it was before.
+  */
+
 }

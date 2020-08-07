@@ -32,9 +32,27 @@ function findAllPlacesInDataBase(req, res) {
     //when database returns the result we call the callback function
     //and send the result to the browser
     function callBackWhenFind1(result) {
-        console.log(result);
+        //console.log(result);
         res.send(result);
     }
+}
+
+//add new place
+app.post("/places", addPlaceToDataBase); 
+
+function addPlaceToDataBase(req, res) {
+    var newPlace = req.body;
+    //I'll write callback in a shorten form
+    place.addNewPlace(newPlace, (result) => {res.send(result)});
+}
+
+//update a place
+app.put("/places/:placeId", updatePlaceById);
+
+function updatePlaceById(req, res) {
+    var placeId = req.params.placeId;
+    var updatedPlace = req.body;
+    place.updatePlaceById(placeId, updatedPlace, (result) => {res.send(result)});
 }
 
 app.listen(PORT, function(){               //стартуем сервер

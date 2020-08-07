@@ -1,55 +1,34 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-//import places from "./places";
-//import places_json from "./places_json.json";
 
-
-/*
-var places;
-loadPlaces();
-
-function loadPlaces() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            places = JSON.parse(this.responseText);
-            changePlaces(places);
-        }
-    };
-    xhttp.open("GET", "http://localhost:8080/places.json", true);
-    xhttp.send();
-}
-
-*/
-
-
-function upLoadPlaces(places) {
-  var placesJSON = JSON.stringify(places);
+//add new place to database
+function uploadNewPlace(place) {
+  var placeJSON = JSON.stringify(place);
   var xhttp = new XMLHttpRequest();
-
-  xhttp.open("POST", "https://fav-places-server.herokuapp.com/places.json", true);
+  xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          console.log(this.responseText);
+      }
+  };
+  xhttp.open("POST", "http://localhost:3000/places", true);
   xhttp.setRequestHeader("Content-type", "application/json");
-  xhttp.send(placesJSON);
+  xhttp.send(placeJSON);
 }
 
-//console.log(places_json);
-/*
-
-//переводим places в сплошной массив
-function createArr(places) {
-  var arr_places = [];
-  var id;
-  for (id in places) {
-    var place_list = places[id];
-    for (var i = 0; i < place_list.length; i++) {
-      arr_places.push(place_list[i]);
-    }
-  }
-  return arr_places;
+//update an existing place by id in database
+function updatePlace(place) {
+  var placeId = place.id;
+  var placeJSON = JSON.stringify(place);
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          console.log(this.responseText);
+      }
+  };
+  xhttp.open("PUT", "http://localhost:3000/places/" + placeId, true);
+  xhttp.setRequestHeader("Content-type", "application/json");
+  xhttp.send(placeJSON);
 }
-
-var arr_places = createArr(places);
-*/
 
 var filter_init = {
   author: "All authors",
@@ -101,13 +80,22 @@ export class PlacesService {
     this.selectedPlace.next(place);
   }
 
-  private placesList = new BehaviorSubject([]);       //renew list of places after changes
+  private placesList = new BehaviorSubject([]);       //renew list of places after changes or add new place to the MysqlDB
   currentPlaces = this.placesList.asObservable();
-  changePlaces(newList, addedPlace?) {
+  //changePlaces(newList, place_object?, action?) {
+  changePlaces(newList, action?, place_object?) {
     this.placesList.next(newList);  //first we update list of places in the local memory
     //console.log(newList);
     //console.log(addedPlace);
-    upLoadPlaces(newList);          //then we upload a new place or change existing place in the database
+    if (place_object) {
+      if (action === "add") {
+        uploadNewPlace(place_object);          //if we have a new place to add we upload it to the database
+      }
+      if (action === "update") {
+        console.log("place updated");
+        updatePlace(place_object);          //if we have an update of existing place - we update this place in database
+      }
+    }
   }
 
   private searchString = new BehaviorSubject("");          //переключаем кнопку кнопку сайднав/назад

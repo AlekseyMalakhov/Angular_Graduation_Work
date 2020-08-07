@@ -72,7 +72,7 @@ export class AddPlaceComponent implements OnInit {
       var adding_place = {...this.new_place};
       var new_list = [...this.places];
       new_list.push(adding_place);
-      this.data.changePlaces(new_list, adding_place);     //update a list of all places in local memory and database
+      this.data.changePlaces(new_list, "add", adding_place);     //update a list of all places in local memory and add new place to remote database
       this.data.changePlaceSaved(true);   //share the "place saved" event
       //console.log(this.places);
       
@@ -83,7 +83,7 @@ export class AddPlaceComponent implements OnInit {
       var new_list = [...this.places];
       var pos = new_list.findIndex((e) => (e.id === editing_place.id));
       new_list[pos] = editing_place;
-      this.data.changePlaces(new_list);
+      this.data.changePlaces(new_list, "update", editing_place);     //update a list of all places in local memory and send edited place to remote database
       this.data.changePlaceSaved(true);
       //чтобы после выхода из редактирования на сайдбаре отображалось уже отредактированное место
       this.data.changeSelectedPlace(editing_place);

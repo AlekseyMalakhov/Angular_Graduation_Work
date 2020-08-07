@@ -101,12 +101,13 @@ export class PlacesService {
     this.selectedPlace.next(place);
   }
 
-  private placesList = new BehaviorSubject([]);       //список мест
+  private placesList = new BehaviorSubject([]);       //renew list of places after changes
   currentPlaces = this.placesList.asObservable();
-  changePlaces(newPlaces) {
-    this.placesList.next(newPlaces);
-    //console.log(newPlaces);
-    upLoadPlaces(newPlaces);
+  changePlaces(newList, addedPlace?) {
+    this.placesList.next(newList);  //first we update list of places in the local memory
+    //console.log(newList);
+    //console.log(addedPlace);
+    upLoadPlaces(newList);          //then we upload a new place or change existing place in the database
   }
 
   private searchString = new BehaviorSubject("");          //переключаем кнопку кнопку сайднав/назад

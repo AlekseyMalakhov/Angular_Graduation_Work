@@ -68,13 +68,14 @@ export class AddPlaceComponent implements OnInit {
       this.new_place.coords = this.coords;
       this.new_place.id = this.id;
       this.id = this.id + 1;
-      this.data.changeNewPlaceId(this.id);
+      this.data.changeNewPlaceId(this.id);      //share the id of the newerly created place
       var adding_place = {...this.new_place};
       var new_list = [...this.places];
       new_list.push(adding_place);
-      this.data.changePlaces(new_list);
-      this.data.changePlaceSaved(true);
+      this.data.changePlaces(new_list, adding_place);     //update a list of all places in local memory and database
+      this.data.changePlaceSaved(true);   //share the "place saved" event
       //console.log(this.places);
+      
     } else {
       //если редактируем старое
       this.new_place.coords = this.coords;

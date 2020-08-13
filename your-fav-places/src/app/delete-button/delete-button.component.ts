@@ -39,7 +39,7 @@ export class DeleteButtonComponent implements OnInit {
     //console.log("del_place_id = " + this.del_place_id);
     if (pos !== -1) {
       new_list.splice(pos, 1);
-      this.data.changePlaces(new_list);
+      this.data.changePlaces(new_list, "delete", this.del_place_id);
       //console.log(new_list);
       //чтобы после выхода из удаления на сайдбаре не отображалось удаленное место
       this.data.changeSelectedPlace({});

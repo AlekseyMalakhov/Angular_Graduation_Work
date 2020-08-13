@@ -114,11 +114,14 @@ place.deletePlaceById = function(placeId, result) {
   });
 
   function sendResponse() {
+    //console.log(check);
     if (check.place === "deleted" && check.coords === "deleted") {
       result("Id " + placeId + " - information deleted");
+      return;
     }
     if (check.place === "notFound" && check.coords === "notFound") {
       result("Id " + placeId + " was not found");
+      return;
     }
     if (!check.place && !check.coords) {
       result("Id " + placeId + " - some error occured");
@@ -167,9 +170,11 @@ place.updatePlaceById = function(placeId, place, result) {
   function sendResponse() {
     if (check.place === "updated" && check.coords === "updated") {
       result("Id " + placeId + " - information updated");
+      return;
     }
     if (check.place === "notFound" && check.coords === "notFound") {
       result("Id " + placeId + " was not found");
+      return;
     }
     if (!check.place && !check.coords) {
       result("Id " + placeId + " - some error occured");

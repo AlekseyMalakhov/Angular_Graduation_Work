@@ -30,6 +30,18 @@ function updatePlace(place) {
   xhttp.send(placeJSON);
 }
 
+//delete an existing place by id
+function deletePlace(placeId) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          console.log(this.responseText);
+      }
+  };
+  xhttp.open("DELETE", "http://localhost:3000/places/" + placeId, true);
+  xhttp.send();
+}
+
 var filter_init = {
   author: "All authors",
   min_lat: 0,
@@ -82,18 +94,17 @@ export class PlacesService {
 
   private placesList = new BehaviorSubject([]);       //renew list of places after changes or add new place to the MysqlDB
   currentPlaces = this.placesList.asObservable();
-  //changePlaces(newList, place_object?, action?) {
   changePlaces(newList, action?, place_object?) {
     this.placesList.next(newList);  //first we update list of places in the local memory
-    //console.log(newList);
-    //console.log(addedPlace);
     if (place_object) {
       if (action === "add") {
         uploadNewPlace(place_object);          //if we have a new place to add we upload it to the database
       }
       if (action === "update") {
-        console.log("place updated");
         updatePlace(place_object);          //if we have an update of existing place - we update this place in database
+      }
+      if (action === "delete") {
+        deletePlace(place_object);          //if we have an id of deleted place - we delete this place from the database
       }
     }
   }

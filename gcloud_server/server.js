@@ -55,6 +55,15 @@ function updatePlaceById(req, res) {
     place.updatePlaceById(placeId, updatedPlace, (result) => {res.send(result)});
 }
 
+//delete a single place by id
+app.delete("/places/:placeId", deletePlaceById);
+
+function deletePlaceById(req, res) {
+    var placeId = req.params.placeId;
+    console.log(placeId);
+    place.deletePlaceById(placeId, (result) => {res.send(result)});
+}
+
 app.listen(PORT, function(){               //стартуем сервер
     console.log('Your fav places server is listening on port ' + PORT);
 });

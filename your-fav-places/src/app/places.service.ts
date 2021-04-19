@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+// import urlconst from "./urlconst";
+// console.log(urlconst);
 
 //add new place to database
 function uploadNewPlace(place) {

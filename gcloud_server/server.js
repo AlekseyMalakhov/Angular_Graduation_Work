@@ -14,16 +14,6 @@ app.use(bodyParser.json());
 //parse requests of content-type:  application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended: true}));
 
-/*
-
-app.use(express.static(__dirname + "/your-fav-places"));
-
-app.get('*', function(req, res){
-  res.sendFile(__dirname + "/your-fav-places/index.html");
-});
-
-*/
-
 //get all places
 app.get("/places", findAllPlacesInDataBase);               
 

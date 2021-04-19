@@ -48,8 +48,9 @@ loadPlaces() {
           data.changePlaces(places);
       }
   };
-  //xhttp.open("GET", "https://fav-places-server.herokuapp.com/places.json", true);
-  xhttp.open("GET", "http://localhost:3000/places", true);
+
+  xhttp.open("POST", "https://your-favorite-places.ew.r.appspot.com/get_places", true),
+  xhttp.setRequestHeader("Content-type", "application/json"),
   xhttp.send();
 }
 

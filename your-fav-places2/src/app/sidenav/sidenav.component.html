@@ -1,0 +1,24 @@
+<div id="sidenav">
+    <div>
+        <button *ngIf="!editPlace && selected_place.id" mat-icon-button (click)="cancelSelection()">
+            <img src="/assets/svg/sidenav_back.svg" alt="back"> 
+        </button>
+        <button *ngIf="!editPlace" mat-raised-button color="primary" (click) = "addPlace()">Add Place</button>        
+    </div>
+
+    <ng-container *ngIf="!editPlace && !selected_place.id">
+        <div *ngFor = "let place of places">
+            <ng-container *ngIf="place && search(place.name)">
+                <app-place [place] = "place" [user] = "user"></app-place>
+            </ng-container> 
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="!editPlace && selected_place.id">
+            <app-place [place] = "selected_place" [user] = "user"></app-place>
+    </ng-container>
+    
+    <ng-container *ngIf="editPlace">
+        <app-add-place [user] = "user" [userId] = "userId" (cancel_edit) = "cancelEditPlace()" [place_to_edit] = "place_to_edit"></app-add-place>
+    </ng-container> 
+</div>

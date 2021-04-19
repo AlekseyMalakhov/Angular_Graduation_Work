@@ -1,0 +1,24 @@
+<div class="container" *ngIf = "place">
+    <div class="content">
+        <h2>{{place.name}}</h2>
+        <h4 class="author">{{place.author}}</h4>
+        <p class="location">Location coordinates: {{place.coords[0] + ", " + place.coords[1]}}<p>
+        <img src="/assets/pics/places/{{place.img}}" alt="{{place.name}} picture">
+        <p>{{place.description}}</p>
+    </div>
+    <mat-divider></mat-divider>   
+</div>
+<div class = "actions" *ngIf = "place && (place.author === user_obj.user)">
+    <!--<button mat-button (click) = "edit()">Edit</button>-->
+    <app-edit-button [place] = "place" [go_root] = "true"></app-edit-button>
+    <app-delete-button [del_place_id] = "place.id" [del_place_name] = "place.name" [back_after_del] = "true"></app-delete-button>
+</div>
+
+<div class = "error" *ngIf = "!place">
+    <div>
+        <h2>Sorry, it seems this page does not exist anymore.</h2>
+    </div>
+    <div>
+        <button mat-raised-button routerLink="/" routerLinkActive="active" matTooltip="Home">Go to the main page</button>
+    </div>      
+</div>

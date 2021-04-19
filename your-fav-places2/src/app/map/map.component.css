@@ -1,0 +1,25 @@
+#map {
+	position: absolute;
+	top: 64px;
+	left: 0px;
+	right: 0px;
+	margin: 0 auto;
+	z-index: 1;
+}
+
+#background {
+	position: relative;
+	height: 1200px;
+	width: 2400px;
+	overflow: hidden;
+	display: block;	
+	background-image: url("/assets/pics/map.jpg"), url("/assets/pics/rep_map.jpg");
+	background-repeat: no-repeat, repeat;
+}
+
+.new_place {
+    position: absolute;
+    z-index: 2;
+    height: 40px;
+    padding: 20px 20px;
+}

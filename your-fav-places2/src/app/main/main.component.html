@@ -1,0 +1,3 @@
+<app-map [places] = "places" [user] = "user_obj.user"></app-map>
+<app-sidenav [class] = "getSidenavClass()" [places] = "places" [user] = "user_obj.user" [userId] = "user_obj.userId"></app-sidenav>
+<app-loader *ngIf = "places.length === 0"></app-loader>

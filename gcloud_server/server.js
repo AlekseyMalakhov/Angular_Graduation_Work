@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 //get all places
-app.get("/places", findAllPlacesInDataBase);               
+app.post("/get_places", findAllPlacesInDataBase);               
 
 function findAllPlacesInDataBase(req, res) {
     place.findAll(callBackWhenFind1);

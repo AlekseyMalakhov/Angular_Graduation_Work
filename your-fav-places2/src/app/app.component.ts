@@ -22,14 +22,18 @@ export class AppComponent implements OnInit {
 async ngOnInit() {
   this.loadPlaces();
   this.data.currentUserPage.subscribe(user_page => this.user_page = user_page);
-  this.isAuthenticated = await this.oktaAuth.isAuthenticated();
-  if (this.isAuthenticated) {
-    const userClaims = await this.oktaAuth.getUser();
+  this.isAuthenticated = await this.oktaAuth.isAuthenticated();   
+}
+
+async ngDoCheck() {
+  if (this.isAuthenticated && this.user === "" && this.userId === "") {
+    const userClaims = await this.oktaAuth.getUser();    
     this.user = userClaims.name;
+    console.log(this.user);
     this.userId = userClaims.nickname;
     this.data.changeUser({user: this.user, 
                           userId: this.userId});
-  }  
+  }
 }
 
 //make a request to the remote Mysql database to provide us all places it has.
@@ -56,6 +60,7 @@ loadPlaces() {
 }
 
 logout() {
-  this.oktaAuth.signOut('/');  
+  console.log("logout");
+  this.oktaAuth.signOut();  
   }
 }

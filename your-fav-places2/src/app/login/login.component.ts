@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import * as OktaSignIn from '@okta/okta-signin-widget';
+import { OktaAuthService } from '@okta/okta-angular';
 import sampleConfig from '../app.config';
+
+const DEFAULT_ORIGINAL_URI = window.location.origin;
 
 
 @Component({
@@ -11,7 +14,7 @@ import sampleConfig from '../app.config';
 export class LoginComponent implements OnInit {
   signIn: any;
   
-  constructor() {
+  constructor(public oktaAuth: OktaAuthService) {
     this.signIn = new OktaSignIn({
       /**
        * Note: when using the Sign-In Widget for an ODIC flow, it still
@@ -31,10 +34,10 @@ export class LoginComponent implements OnInit {
         },
       },
       authParams: {
-        pkce: true,
-        responseMode: 'query',
+        //pkce: true,
+        //responseMode: 'query',
         issuer: sampleConfig.oidc.issuer,
-        display: 'page',
+        //display: 'page',
         scopes: sampleConfig.oidc.scopes,
       },
       customButtons: [{
@@ -57,21 +60,44 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  // ngOnInit() {
+  //   this.signIn.renderEl(
+  //     { el: '#sign-in-widget' },
+  //     () => {
+  //       /**
+  //        * In this flow, the success handler will not be called because we redirect
+  //        * to the Okta org for the authentication workflow.
+  //        */
+  //     },
+  //     (err) => {
+  //       throw err;
+  //     },
+  //   );
+  //   this.signIn.show();
+  //   //console.log(this.signIn);
+  // }
+
   ngOnInit() {
-    this.signIn.renderEl(
-      { el: '#sign-in-widget' },
-      () => {
-        /**
-         * In this flow, the success handler will not be called because we redirect
-         * to the Okta org for the authentication workflow.
-         */
-      },
-      (err) => {
-        throw err;
-      },
-    );
-    this.signIn.show();
-    //console.log(this.signIn);
+    this.signIn.showSignInToGetTokens({
+      el: '#sign-in-widget',
+      scopes: sampleConfig.oidc.scopes
+    }).then(tokens => {
+      // When navigating to a protected route, the route path will be saved as the `originalUri`
+      // If no `originalUri` has been saved, then redirect back to the app root
+      // const originalUri = this.oktaAuth.getOriginalUri();
+      // if (originalUri === DEFAULT_ORIGINAL_URI) {
+      this.oktaAuth.setOriginalUri('/');
+      // }
+
+      // Remove the widget
+      this.signIn.remove();
+
+      // In this flow the redirect to Okta occurs in a hidden iframe
+      this.oktaAuth.handleLoginRedirect(tokens);
+    }).catch(err => {
+      // Typically due to misconfiguration
+      throw err;
+    });
   }
 
 }

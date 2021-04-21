@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlacesService } from "./places.service";
 import { OktaAuthService } from '@okta/okta-angular';
-import urlconst from "./urlconst";
+import {environment} from "../environments/environment";
 
 @Component({
   selector: 'app-root',
@@ -29,7 +29,6 @@ async ngDoCheck() {
   if (this.isAuthenticated && this.user === "" && this.userId === "") {
     const userClaims = await this.oktaAuth.getUser();    
     this.user = userClaims.name;
-    console.log(this.user);
     this.userId = userClaims.nickname;
     this.data.changeUser({user: this.user, 
                           userId: this.userId});
@@ -54,7 +53,7 @@ loadPlaces() {
       }
   };
 
-  xhttp.open("POST", urlconst + "/get_places", true),
+  xhttp.open("POST", environment.db_server_url + "/get_places", true),
   xhttp.setRequestHeader("Content-type", "application/json"),
   xhttp.send();
 }

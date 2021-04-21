@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import urlconst from "./urlconst";
+import {environment} from "../environments/environment";
 
 //add new place to database
 function uploadNewPlace(place) {
@@ -11,7 +11,7 @@ function uploadNewPlace(place) {
           console.log(this.responseText);
       }
   };
-  xhttp.open("POST", urlconst + "/places", true);
+  xhttp.open("POST", environment.db_server_url + "/places", true);
   xhttp.setRequestHeader("Content-type", "application/json");
   xhttp.send(placeJSON);
 }
@@ -26,7 +26,7 @@ function updatePlace(place) {
           console.log(this.responseText);
       }
   };
-  xhttp.open("PUT", urlconst + "/places/" + placeId, true);
+  xhttp.open("PUT", environment.db_server_url + "/places/" + placeId, true);
   xhttp.setRequestHeader("Content-type", "application/json");
   xhttp.send(placeJSON);
 }
@@ -39,7 +39,7 @@ function deletePlace(placeId) {
           console.log(this.responseText);
       }
   };
-  xhttp.open("DELETE", urlconst + "/places/" + placeId, true);
+  xhttp.open("DELETE", environment.db_server_url + "/places/" + placeId, true);
   xhttp.send();
 }
 
@@ -52,17 +52,6 @@ var filter_init = {
 };
 
 var id_init = 52;         //начальный id
-/*
-interface Placeable { 
-  id: number; 
-  name: string; 
-  author: string; 
-  author_id: string; 
-  img: string; 
-  description: string; 
-  coords: number[]; 
-};
-*/
 
 @Injectable({
   providedIn: 'root'

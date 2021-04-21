@@ -54,6 +54,16 @@ function deletePlaceById(req, res) {
     place.deletePlaceById(placeId, (result) => {res.send(result)});
 }
 
+//only for production build
+/*
+app.use(express.static(__dirname + "/your-fav-places2"));
+
+app.get('*', function(req, res){
+  res.sendFile(__dirname + "/your-fav-places2/index.html");
+});
+*/
+//end for production build
+
 app.listen(PORT, function(){               //стартуем сервер
     console.log('Your fav places server is listening on port ' + PORT);
 });
